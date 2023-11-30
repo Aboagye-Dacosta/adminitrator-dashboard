@@ -30,7 +30,7 @@ export default {
       },
       "Homepage-content": {
         title: "Homepage content",
-        url: "/admin/configuration/settings",
+        url: "/admin/configuration/homepage-configuration",
       },
     },
   },
@@ -72,7 +72,7 @@ export default {
       },
     },
   },
-  "Membership Plan": {
+  "Membership-Plan": {
     id: 6,
     title: "Membership Plan",
     icon: MdOutlineAttachMoney,
@@ -110,9 +110,9 @@ export default {
     title: "Manage Service Packages",
     icon: TbPackages,
     links: {
-      "Withdrawal-Request": {
-        title: "Withdrawal Request",
-        url: "/admin/payment/withdrawal",
+      "Service-Package-List": {
+        title: "Service Package List",
+        url: "/admin/payment/pervice-package-list",
       },
     },
   },
@@ -145,7 +145,7 @@ export default {
     links: {
       "Pages List": {
         title: "Pages List",
-        url: "/admin/adds-ons",
+        url: "/admin/page-list",
       },
     },
   },

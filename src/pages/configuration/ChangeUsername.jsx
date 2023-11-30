@@ -4,7 +4,7 @@ import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
 
 // eslint-disable-next-line react/prop-types
-function ChangeEmail({ title }) {
+function ChangeUsername({ title }) {
   const handleCancel = () => {
     window.history.back();
   };
@@ -17,26 +17,22 @@ function ChangeEmail({ title }) {
   return (
     <PageLayout header={title}>
       <Container>
-        <form onSubmit={handleSave}>
-          <div className="w-full">
+        <form className="w-full" onSubmit={handleSave}>
+          <div>
             <FormTextInput
-              label={"Current Email"}
-              name="currentEmail"
-              type="email"
+              label={"Current Username"}
+              required={false}
+              name="currentUsername"
             />
-            <FormTextInput label={"New Email"} name="newEmail" type="email" />
-            <FormTextInput
-              label={"Confirm Email"}
-              name="confirmEmail"
-              type="email"
-            />
+            <FormTextInput label={"New Username"} name="newUsername" />
+            <FormTextInput label={"Confirm Username"} name="confirmUsername" />
           </div>
-          <div className="lg:ml-60">
+          <div className="ml-60">
             <Button
               className="bg-primary text-[1.2rem] text-white mr-3"
               type="submit"
             >
-              Save
+              Submit
             </Button>
             <Button
               className="bg-white text-[1.2rem] text-black"
@@ -51,4 +47,4 @@ function ChangeEmail({ title }) {
   );
 }
 
-export default ChangeEmail;
+export default ChangeUsername;

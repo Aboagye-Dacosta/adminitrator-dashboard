@@ -11,12 +11,19 @@ export default withMT({
       body: ["Roboto", "sans-serif"],
     },
     colors: {
-      primary: "#fb5607",
+      primary: "#fb8b24",
       slate: "#e9ecef",
       white: "#ffffff",
       black: "#343a40",
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        100: "100",
+      },
+      inset: {
+        "5rem": "5rem",
+      },
+    },
   },
   plugins: [],
 });
