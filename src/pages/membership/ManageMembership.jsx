@@ -4,11 +4,11 @@ import Table from "../../components/Table/Table";
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
-import { data } from "../../presentation/dummyTableData";
+import { data } from "../../presentation/dummy/dummyTableData";
 import {
   membershipTableAction,
   membershipTableHeaders,
-} from "../../presentation/membershipTableModel";
+} from "../../presentation/membership/membershipTableModel";
 
 // eslint-disable-next-line react/prop-types
 function ManageMembership({ title }) {

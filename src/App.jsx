@@ -12,12 +12,14 @@ import ChangePassword from "./pages/configuration/ChangePassword";
 import HomePageContent from "./pages/configuration/HomePageContent";
 import SiteSettings from "./pages/configuration/SiteSettings";
 import ManageCountriesList from "./pages/countries/ManageCountriesList";
+import ManageCustomerList from "./pages/customers/ManageCustomerList";
 import ManageMembership from "./pages/membership/ManageMembership";
 import ManagePageList from "./pages/pageList/ManagePageList";
 import ManageServiceCategory from "./pages/service/ManageServiceCategory";
 import ManageServicePackages from "./pages/service/ManageServicePackages";
 import ManageServiceRequest from "./pages/service/ManageServiceRequest";
-import routes from "./presentation/routes";
+import ManageServiceProviderList from "./pages/serviceProviders/ManageServiceProviderList";
+import routes from "./presentation/routes_icons/routes";
 
 function App() {
   return (
@@ -189,6 +191,38 @@ function App() {
                 path={routes["Manage-Pages"]["links"]["Pages List"]["url"]}
                 element={
                   <ManagePageList title={routes["Manage-Pages"]["title"]} />
+                }
+              />
+              <Route
+                exact
+                path={
+                  routes["Manage-Customers"]["links"]["Customer-list"]["url"]
+                }
+                element={
+                  <ManageCustomerList
+                    title={
+                      routes["Manage-Customers"]["links"]["Customer-list"][
+                        "title"
+                      ]
+                    }
+                  />
+                }
+              />
+              <Route
+                exact
+                path={
+                  routes["Manage-service-providers"]["links"][
+                    "Service-Provider-List"
+                  ]["url"]
+                }
+                element={
+                  <ManageServiceProviderList
+                    title={
+                      routes["Manage-service-providers"]["links"][
+                        "Service-Provider-List"
+                      ]["title"]
+                    }
+                  />
                 }
               />
             </Routes>

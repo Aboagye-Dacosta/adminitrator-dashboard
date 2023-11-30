@@ -1,5 +1,5 @@
 import { FaSort } from "react-icons/fa";
-import { tableIcons } from "./iconsHolder";
+import { visible } from "../routes_icons/iconsHolder";
 
 export const serviceRequestTableHeaders = [
   {
@@ -51,16 +51,6 @@ export const serviceRequestTableHeaders = [
 
 export const serviceRequestTableActions = [
   {
-    icons: [
-      {
-        key: "visible",
-        icon: tableIcons.visible,
-        handler: () => {},
-        colors: {
-          light: "bg-primary",
-          dark: "hover:bg-orange-900",
-        },
-      },
-    ],
+    icons: [visible],
   },
 ];

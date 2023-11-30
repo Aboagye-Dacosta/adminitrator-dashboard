@@ -6,7 +6,7 @@ import "./index.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import store from "./service/store.js";
 import { Provider } from "react-redux";
-import { uiTheme } from "./presentation/customUiTheme.js";
+import { uiTheme } from "./presentation/theme/customUiTheme.js";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(

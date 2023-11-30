@@ -3,11 +3,11 @@ import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
 import {
-  countriesListTableHeaders,
-  countriesListTableAction,
-} from "../../presentation/countriesListTableModel";
+  countriesTableActions,
+  countriesTableHeaders,
+} from "../../presentation/countries/manageCountriesTabelModel";
 
-import { data } from "../../presentation/dummyTableData";
+import { data } from "../../presentation/dummy/dummyTableData";
 
 // eslint-disable-next-line react/prop-types
 function ManageCountriesList({ title }) {
@@ -22,9 +22,9 @@ function ManageCountriesList({ title }) {
         <Table
           title="Plans List"
           data={data}
-          columnHeaders={countriesListTableHeaders}
+          columnHeaders={countriesTableHeaders}
           handleChecked={() => {}}
-          tableActions={countriesListTableAction}
+          tableActions={countriesTableActions}
         />
       </Container>
     </PageLayout>

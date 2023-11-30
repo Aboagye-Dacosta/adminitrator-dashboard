@@ -5,13 +5,14 @@ import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
 import { data } from "../../presentation/dummy/dummyTableData";
+
 import {
-  pageListActions,
-  pageListHeaders,
-} from "../../presentation/pageList/pageListTableModel";
+  serviceProviderTableAction,
+  serviceProviderTableHeaders,
+} from "../../presentation/serviceProviders/serviceProviderTableModel";
 
 // eslint-disable-next-line react/prop-types
-function ManagePageList({ title }) {
+function ManageServiceProviderList({ title }) {
   return (
     <PageLayout header={title}>
       <Container>
@@ -27,14 +28,13 @@ function ManagePageList({ title }) {
         <Table
           title="Plans List"
           data={data}
-          columnHeaders={pageListHeaders}
+          columnHeaders={serviceProviderTableHeaders}
           handleChecked={() => {}}
-          tableActions={pageListActions}
-          checkAble={false}
+          tableActions={serviceProviderTableAction}
         />
       </Container>
     </PageLayout>
   );
 }
 
-export default ManagePageList;
+export default ManageServiceProviderList;

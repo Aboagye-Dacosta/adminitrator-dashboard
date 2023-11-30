@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoIosColorPalette } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import routes from "../../presentation/routes.js";
+import routes from "../../presentation/routes_icons/routes.js";
 import { selectNavState } from "../../service/features/navigation_slice.js";
 import SideBarTile from "./SideBarTile.jsx";
 

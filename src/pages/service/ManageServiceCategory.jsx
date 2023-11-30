@@ -2,7 +2,10 @@ import Table from "../../components/Table/Table";
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
-import { serviceCategoryTableActions, serviceCategoryTableHeaders } from "../../presentation/serviceCategoryTableModel";
+import {
+  serviceCategoryTableActions,
+  serviceCategoryTableHeaders,
+} from "../../presentation/services/serviceCategoryTableModel";
 
 // eslint-disable-next-line react/prop-types
 function ManageServiceCategory({ title }) {

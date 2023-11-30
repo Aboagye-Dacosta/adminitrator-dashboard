@@ -1,6 +1,6 @@
 import DashboardTile from "../../components/Dashboard/DashboardTile";
 import PageLayout from "../../components/layout/PageCard";
-import dashboard from "../../presentation/dashboard_model";
+import dashboard from "../../presentation/dashboard/dashboard_model";
 
 // eslint-disable-next-line react/prop-types
 function DashBoard({ title }) {
