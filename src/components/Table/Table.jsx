@@ -1,3 +1,5 @@
+import PuffLoader from "react-spinners/PuffLoader";
+import { statusObj } from "../../service/features/customerSlice";
 import TableFooterActionSection from "./TableFooterActionSection";
 import TableRow from "./TableRow";
 
@@ -8,10 +10,17 @@ function Table({
   data,
   handleChecked,
   tableActions,
+  status,
   checkAble = true,
 }) {
+  console.log(data);
   return (
-    <div className="mt-20">
+    <div className="mt-20 relative">
+      {status === statusObj.pending && (
+        <div className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+          <PuffLoader color="#fb8b24" size={100} />
+        </div>
+      )}
       <div className="mb-5 text-black text-[1.5rem]">
         <span className="block py-2">{title}</span>
         <hr />
@@ -48,6 +57,9 @@ function Table({
               <TableRow
                 data={value}
                 key={i}
+                keys={columnHeaders
+                  .filter((value) => value.id != "")
+                  .map((value) => value.id)}
                 tableActions={tableActions}
                 checkAble={checkAble}
               />

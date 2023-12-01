@@ -1,7 +1,5 @@
-import TableActionsData from "./TableActionsData";
-
 /* eslint-disable react/prop-types */
-function TableRow({ data, handleSelected, tableActions, checkAble }) {
+function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
   return (
     <tr className="odd:bg-blue-gray-50/50">
       {checkAble && (
@@ -9,17 +7,40 @@ function TableRow({ data, handleSelected, tableActions, checkAble }) {
           <input type="checkbox" onChange={handleSelected} />
         </td>
       )}
-      {Object.values(data).map((value, i) => {
-        return (
-          <td
-            key={i}
-            className="p-2 text-[1.3rem] text-black border border-slate"
-          >
-            {value}
-          </td>
-        );
+      {keys.map((value, i) => {
+        if (value == "profilePicture") {
+          return (
+            <td
+              key={i}
+              className="p-2 text-[1.3rem] text-black border border-slate"
+            >
+              <img src={data[value]} alt="" className="w-20 h-20" />
+            </td>
+          );
+        } else if (value == "Availability")
+        {
+          return (
+            <td
+              key={i}
+              className="p-2 text-[1.3rem] text-black border border-slate"
+            >
+              <a href={data[value]} alt="" className="w-20 h-20" />
+            </td>
+          );
+        }
+        else
+        {
+          return (
+            <td
+              key={i}
+              className="p-2 text-[1.3rem] text-black border border-slate"
+            >
+              {data[value]}
+            </td>
+          );
+        }
       })}
-      <TableActionsData actions={tableActions} />
+      {/* <TableActionsData actions={tableActions} /> */}
     </tr>
   );
 }

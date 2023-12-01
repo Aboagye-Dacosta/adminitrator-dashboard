@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
+import customerSlice from "./features/customerSlice";
 import navigationSlice from "./features/navigation_slice";
-import pageManagementSlice from "./features/page_management_slice";
+import paymentSlice from "./features/paymentSlice";
+import supplierSlice from "./features/serviceProviderSlice";
 
 const store = configureStore({
   reducer: {
-    pageManagement: pageManagementSlice.reducer,
-    navigationController: navigationSlice.reducer,
+    navigationController: navigationSlice,
+    customer: customerSlice,
+    supplier: supplierSlice,
+    payment: paymentSlice,
   },
 });
 

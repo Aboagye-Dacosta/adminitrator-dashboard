@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import
-  {
-    Breadcrumbs,
-    Card,
-    CardBody,
-    CardHeader,
-  } from "@material-tailwind/react";
+import {
+  Breadcrumbs,
+  Card,
+  CardBody,
+  CardHeader,
+} from "@material-tailwind/react";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -18,7 +17,7 @@ function PageLayout({ children, header }) {
     .map((point) => point.split("-").join(" "));
 
   return (
-    <Card className="w-full flex flex-col  my-7 !bg-transparent border-none shadow-none">
+    <Card className="w-full flex flex-col  my-7 !bg-transparent border-none shadow-none relative">
       <CardHeader className="text-[2rem] !shadow-none  !bg-transparent font-bold text-gray-700 py-5  px-5 flex lg:flex-row flex-col justify-between items-center">
         {header}
         <Breadcrumbs separator={">"} className="text-[1.2rem] mt-5 lg:mt-0">

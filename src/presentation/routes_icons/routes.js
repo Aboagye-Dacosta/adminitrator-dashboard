@@ -64,11 +64,11 @@ export default {
     links: {
       "Withdrawal-Request": {
         title: "Withdrawal Request",
-        url: "/admin/payment/withdrawal",
+        url: "/admin/payments/withdrawal",
       },
       "Payment-History": {
         title: "Payment History",
-        url: "/admin/payment/history",
+        url: "/admin/payments/history",
       },
     },
   },
@@ -112,7 +112,7 @@ export default {
     links: {
       "Service-Package-List": {
         title: "Service Package List",
-        url: "/admin/payment/pervice-package-list",
+        url: "/admin/payment/service-package-list",
       },
     },
   },

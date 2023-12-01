@@ -5,45 +5,44 @@ import Table from "../../components/Table/Table";
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
-
-import {
-  serviceProviderTableAction,
-  serviceProviderTableHeaders,
-} from "../../presentation/serviceProviders/serviceProviderTableModel";
+import { managePaymentListHeaders } from "../../presentation/payments/managePaymentModel";
 import { statusObj } from "../../service/features/customerSlice";
 import {
-  getAllSupplier,
-  readAllSuppliers,
-} from "../../service/features/serviceProviderSlice";
+  getAllPayments,
+  readAllPayments,
+} from "../../service/features/paymentSlice";
 
 // eslint-disable-next-line react/prop-types
-function ManageServiceProviderList({ title }) {
+function ManagePayments({ title }) {
   const dispatch = useDispatch();
-  const supplierList = useSelector(getAllSupplier);
-  const status = useSelector((state) => state.customer.status);
+  const paymentList = useSelector(getAllPayments);
+  const status = useSelector((state) => state.payment.status);
 
   useEffect(() => {
     if (status === statusObj.idle) {
-      dispatch(readAllSuppliers());
+      dispatch(readAllPayments());
     }
   }, [dispatch, status]);
-
   return (
     <PageLayout header={title}>
       <Container>
-        <SearchBar placeholder="Search by" />
+        <SearchBar
+          handleSubmit={() => {}}
+          handleChange={() => {}}
+          placeholder={""}
+        />
 
         <Table
           title="Plans List"
-          data={supplierList}
-          columnHeaders={serviceProviderTableHeaders}
+          data={paymentList}
+          columnHeaders={managePaymentListHeaders}
           handleChecked={() => {}}
           status={status}
-          tableActions={serviceProviderTableAction}
+          tableActions={[]}
         />
       </Container>
     </PageLayout>
   );
 }
 
-export default ManageServiceProviderList;
+export default ManagePayments;

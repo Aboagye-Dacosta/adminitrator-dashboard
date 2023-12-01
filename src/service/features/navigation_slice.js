@@ -19,4 +19,4 @@ const navigationSlice = createSlice({
 export const { setNavigationState } = navigationSlice.actions;
 export const selectNavState = (state) => state.navigationController.open;
 
-export default navigationSlice;
+export default navigationSlice.reducer;

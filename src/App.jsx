@@ -20,6 +20,7 @@ import ManageServicePackages from "./pages/service/ManageServicePackages";
 import ManageServiceRequest from "./pages/service/ManageServiceRequest";
 import ManageServiceProviderList from "./pages/serviceProviders/ManageServiceProviderList";
 import routes from "./presentation/routes_icons/routes";
+import ManagePayments from "./pages/payment/ManagePayments";
 
 function App() {
   return (
@@ -221,6 +222,19 @@ function App() {
                       routes["Manage-service-providers"]["links"][
                         "Service-Provider-List"
                       ]["title"]
+                    }
+                  />
+                }
+              />
+              <Route
+                exact
+                path={routes["Manage-Payment"]["links"]["Payment-History"]["url"]}
+                element={
+                  <ManagePayments
+                    title={
+                      routes["Manage-Payment"]["links"]["Payment-History"][
+                        "title"
+                      ]
                     }
                   />
                 }
