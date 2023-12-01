@@ -1,12 +1,4 @@
-import { FaSort } from "react-icons/fa";
-import {
-  active,
-  deleteIcon,
-  disable,
-  edit,
-  track,
-  visible,
-} from "../routes_icons/iconsHolder";
+import { visible } from "../routes_icons/iconsHolder";
 
 export const serviceProviderTableHeaders = [
   {
@@ -17,19 +9,19 @@ export const serviceProviderTableHeaders = [
   },
   {
     id: "name",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "First Name",
   },
   {
     id: "email",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "Email",
   },
   {
     id: "contact",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "Contact",
   },
@@ -41,7 +33,7 @@ export const serviceProviderTableHeaders = [
   },
   {
     id: "country",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "Country",
   },
@@ -67,18 +59,6 @@ export const serviceProviderTableHeaders = [
 ];
 
 export const serviceProviderTableAction = [
-  {
-    icons: [track],
-  },
-  {
-    icons: [active, disable],
-  },
-  {
-    icons: [edit],
-  },
-  {
-    icons: [deleteIcon],
-  },
   {
     icons: [visible],
   },

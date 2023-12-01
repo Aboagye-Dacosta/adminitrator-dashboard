@@ -20,7 +20,7 @@ import {
 function ManageServiceProviderList({ title }) {
   const dispatch = useDispatch();
   const supplierList = useSelector(getAllSupplier);
-  const status = useSelector((state) => state.customer.status);
+  const status = useSelector((state) => state.serviceProvider.status);
 
   useEffect(() => {
     if (status === statusObj.idle) {
@@ -35,6 +35,7 @@ function ManageServiceProviderList({ title }) {
 
         <Table
           title="Plans List"
+          checkAble={false}
           data={supplierList}
           columnHeaders={serviceProviderTableHeaders}
           handleChecked={() => {}}

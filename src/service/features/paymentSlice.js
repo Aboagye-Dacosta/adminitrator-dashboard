@@ -16,10 +16,31 @@ export const readAllPayments = createAsyncThunk(
   }
 );
 
+export const readServicePaymentsByEmail = createAsyncThunk(
+  `${name}/readServicePaymentsByEmail`,
+  async (email) => {
+    const response = await readAll(`/payments/serviceprovider/${email}`);
+    return response.data;
+  }
+);
+
+export const readCustomerPaymentsByEmail = createAsyncThunk(
+  `${name}/readCustomerPaymentsByEmail`,
+  async (email) => {
+    const response = await readAll(`/payments/customer/${email}`);
+    return response.data;
+  }
+);
+
 const paymentSlice = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    resetPaymentStatus: (state) => {
+      state.status = statusObj.idle;
+    },
+    
+  },
   extraReducers(builder) {
     builder
       .addCase(readAllPayments.pending, (state) => {
@@ -29,9 +50,25 @@ const paymentSlice = createSlice({
         state.payments = action.payload;
 
         state.status = statusObj.fulfilled;
+      })
+      .addCase(readCustomerPaymentsByEmail.pending, (state) => {
+        state.status = statusObj.pending;
+      })
+      .addCase(readCustomerPaymentsByEmail.fulfilled, (state, action) => {
+        state.status = statusObj.fulfilled;
+        state.payments = action.payload;
+      })
+      .addCase(readServicePaymentsByEmail.pending, (state) => {
+        state.status = statusObj.pending;
+      })
+      .addCase(readServicePaymentsByEmail.fulfilled, (state, action) => {
+        state.status = statusObj.fulfilled;
+        state.payments = action.payload;
       });
   },
 });
+
+export const { resetPaymentStatus } = paymentSlice.actions;
 
 export const getAllPayments = (state) => state.payment.payments;
 

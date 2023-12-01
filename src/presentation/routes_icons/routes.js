@@ -1,9 +1,8 @@
-import { FaFileAlt, FaMoneyBill } from "react-icons/fa";
+import { FaMoneyBill } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
-import { GiNetworkBars, GiWorld } from "react-icons/gi";
+import { GiNetworkBars } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import { LuNetwork } from "react-icons/lu";
-import { MdCircle, MdOutlineAttachMoney } from "react-icons/md";
 import { TbPackages } from "react-icons/tb";
 
 export default {
@@ -62,27 +61,27 @@ export default {
     icon: FaMoneyBill,
 
     links: {
-      "Withdrawal-Request": {
-        title: "Withdrawal Request",
-        url: "/admin/payments/withdrawal",
-      },
+      // "Withdrawal-Request": {
+      //   title: "Withdrawal Request",
+      //   url: "/admin/payments/withdrawal",
+      // },
       "Payment-History": {
         title: "Payment History",
         url: "/admin/payments/history",
       },
     },
   },
-  "Membership-Plan": {
-    id: 6,
-    title: "Membership Plan",
-    icon: MdOutlineAttachMoney,
-    links: {
-      "Membership-plan-list": {
-        title: "Membership plan list ",
-        url: "/admin/membership-plan-list",
-      },
-    },
-  },
+  // "Membership-Plan": {
+  //   id: 6,
+  //   title: "Membership Plan",
+  //   icon: MdOutlineAttachMoney,
+  //   links: {
+  //     "Membership-plan-list": {
+  //       title: "Membership plan list ",
+  //       url: "/admin/membership-plan-list",
+  //     },
+  //   },
+  // },
   "Manage-Service-Request": {
     id: 7,
     title: "Manage Service Request",
@@ -112,41 +111,41 @@ export default {
     links: {
       "Service-Package-List": {
         title: "Service Package List",
-        url: "/admin/payment/service-package-list",
+        url: "/admin/services/service-package-list",
       },
     },
   },
-  "Manage-Adds-ons": {
-    id: 10,
-    title: "Manage Adds-ons  ",
-    icon: MdCircle,
-    links: {
-      "Adds-ons List": {
-        title: "Adds-ons List ",
-        url: "/admin/adds-ons",
-      },
-    },
-  },
-  "Manage-Countries": {
-    id: 11,
-    title: "Manage Countries  ",
-    icon: GiWorld,
-    links: {
-      "Country List": {
-        title: "Country List",
-        url: "/admin/countries",
-      },
-    },
-  },
-  "Manage-Pages": {
-    id: 12,
-    title: "Manage Pages",
-    icon: FaFileAlt,
-    links: {
-      "Pages List": {
-        title: "Pages List",
-        url: "/admin/page-list",
-      },
-    },
-  },
+  // "Manage-Adds-ons": {
+  //   id: 10,
+  //   title: "Manage Adds-ons  ",
+  //   icon: MdCircle,
+  //   links: {
+  //     "Adds-ons List": {
+  //       title: "Adds-ons List ",
+  //       url: "/admin/adds-ons",
+  //     },
+  //   },
+  // },
+  // "Manage-Countries": {
+  //   id: 11,
+  //   title: "Manage Countries  ",
+  //   icon: GiWorld,
+  //   links: {
+  //     "Country List": {
+  //       title: "Country List",
+  //       url: "/admin/countries",
+  //     },
+  //   },
+  // },
+  // "Manage-Pages": {
+  //   id: 12,
+  //   title: "Manage Pages",
+  //   icon: FaFileAlt,
+  //   links: {
+  //     "Pages List": {
+  //       title: "Pages List",
+  //       url: "/admin/page-list",
+  //     },
+  //   },
+  // },
 };

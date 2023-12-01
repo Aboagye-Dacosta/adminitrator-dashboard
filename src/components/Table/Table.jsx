@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
+import { errorAlertObj } from "../../presentation/routes_icons/alertModel";
 import { statusObj } from "../../service/features/customerSlice";
-import TableFooterActionSection from "./TableFooterActionSection";
+import {
+  setAlertData,
+  toggleAlert,
+} from "../../service/features/navigation_slice";
 import TableRow from "./TableRow";
-
 /* eslint-disable react/prop-types */
 function Table({
   title,
@@ -11,9 +16,23 @@ function Table({
   handleChecked,
   tableActions,
   status,
-  checkAble = true,
+  checkAble = false,
+  errorMessage = "",
 }) {
-  console.log(data);
+  const dispatch = useDispatch();
+  console.log("from table", status);
+  const statusState = status;
+
+  useEffect(() => {
+    console.log("came here");
+    console.log("from table", statusState);
+    if (statusState == statusObj.error) {
+      errorAlertObj.message = errorMessage;
+      dispatch(setAlertData(errorAlertObj));
+      dispatch(toggleAlert());
+    }
+  }, [dispatch, errorMessage, statusState]);
+
   return (
     <div className="mt-20 relative">
       {status === statusObj.pending && (
@@ -52,33 +71,26 @@ function Table({
           </tr>
         </thead>
         <tbody>
-          {data.map((value, i) => {
-            return (
-              <TableRow
-                data={value}
-                key={i}
-                keys={columnHeaders
-                  .filter((value) => value.id != "")
-                  .map((value) => value.id)}
-                tableActions={tableActions}
-                checkAble={checkAble}
-              />
-            );
-          })}
+          {
+            (status =
+              statusObj.fulfilled &&
+              data.map((value, i) => {
+                return (
+                  <TableRow
+                    data={value}
+                    key={i}
+                    keys={columnHeaders
+                      .filter((value) => value.id != "")
+                      .map((value) => value.id)}
+                    tableActions={tableActions}
+                    checkAble={checkAble}
+                  />
+                );
+              }))
+          }
         </tbody>
       </table>
-      <TableFooterActionSection
-        handleSelectAll={() => {}}
-        handleUnselectAll={() => {}}
-        selectionObject={[
-          {
-            title: "one",
-            handler: () => {
-              console.log(1);
-            },
-          },
-        ]}
-      />
+   
     </div>
   );
 }

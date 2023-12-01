@@ -9,44 +9,64 @@ import {
 
 export const servicePackageTableHeaders = [
   {
+    id: "serviceprofilepic",
+    Icon: "",
+    action: () => {},
+    label: "Service profile",
+  },
+  {
+    id: "providerEmail",
+    Icon: FaSort,
+    action: () => {},
+    label: "Provider Email",
+  },
+  {
+    id: "packageName",
     Icon: FaSort,
     action: () => {},
     label: "Package Name",
   },
   {
-    Icon: FaSort,
+    id: "detail",
+    Icon: "",
     action: () => {},
-    label: "Category",
+    label: "Detail",
   },
   {
+    id: "category",
+    Icon: FaSort,
+    action: () => {},
+    label: "category",
+  },
+  {
+    id: "subCategory",
+    Icon: FaSort,
+    action: () => {},
+    label: "subCategory",
+  },
+  {
+    id: "time",
     Icon: "",
     action: () => {},
     label: "Time",
   },
   {
+    id: "price",
     Icon: FaSort,
     action: () => {},
     label: "Price",
   },
   {
-    Icon: FaSort,
+    id: "country",
+    Icon: "",
     action: () => {},
-    label: "Category",
+    label: "Country",
   },
   {
+    id: "city",
     Icon: "",
     action: () => {},
     label: "City",
-  },
-  {
-    Icon: FaSort,
-    action: () => {},
-    label: "Date",
-  },
-  {
-    Icon: "",
-    action: () => {},
-    label: "Action",
   },
 ];
 

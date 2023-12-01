@@ -18,7 +18,7 @@ function DashboardTile({ title = "title", Icon, path = "/", colors }) {
         </div>
       </CardBody>
       <Link
-        className={`${colors.link} w-full col-span-6 flex items-center justify-center text-white`}
+        className={`${colors.link} opacity-80 hover:opacity-100 w-full col-span-6 flex items-center justify-center text-white`}
         to={path}
       >
         <Typography className="mx-3 group-hover/link:scale-105 transition-transform duration-100">

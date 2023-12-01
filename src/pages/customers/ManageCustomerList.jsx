@@ -22,6 +22,7 @@ function ManageCustomerList({ title }) {
   const dispatch = useDispatch();
   const customerList = useSelector(getAllCustomers);
   const status = useSelector((state) => state.customer.status);
+  const errorMessage = useSelector(state=>state.customer.errorMessage)
 
   useEffect(() => {
     if (status === statusObj.idle) {
@@ -33,10 +34,11 @@ function ManageCustomerList({ title }) {
     <PageLayout header={title}>
       <Container>
         <SearchBar placeholder="Search by" />
-
         <Table
+          checkAble={false}
           title="Customer List"
           status={status}
+          errorMessage={errorMessage}
           data={customerList}
           columnHeaders={customerListTableHeaders}
           handleChecked={() => {}}

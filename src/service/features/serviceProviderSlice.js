@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loadAllSuppliers } from "../load/loadSuppliers";
+import { readAll } from "../load/loadData";
 import { statusObj } from "./customerSlice";
 
 const name = "supplier";
@@ -11,12 +11,12 @@ const initialState = {
 export const readAllSuppliers = createAsyncThunk(
   `${name}/getAllSuppliers`,
   async () => {
-      const response = await loadAllSuppliers("/serviceprovider");
-      return response.data;
+    const response = await readAll("/serviceprofile");
+    return response.data;
   }
 );
 
-const supplierSlice = createSlice({
+const serviceProviderSlice = createSlice({
   name,
   initialState,
   reducers: {},
@@ -28,10 +28,13 @@ const supplierSlice = createSlice({
       .addCase(readAllSuppliers.fulfilled, (state, action) => {
         state.status = statusObj.fulfilled;
         state.suppliers = action.payload;
+      })
+      .addCase(readAllSuppliers.rejected, (state) => {
+        state.status = statusObj.error;
       });
   },
 });
 
-export const getAllSupplier = (sate) => sate.supplier.suppliers;
+export const getAllSupplier = (sate) => sate.serviceProvider.suppliers;
 
-export default supplierSlice.reducer;
+export default serviceProviderSlice.reducer;

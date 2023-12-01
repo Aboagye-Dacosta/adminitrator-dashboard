@@ -1,22 +1,15 @@
-import { FaSort } from "react-icons/fa";
-import {
-  active,
-  deleteIcon,
-  disable,
-  edit,
-  visible,
-} from "../routes_icons/iconsHolder";
+import { visible } from "../routes_icons/iconsHolder";
 
 export const customerListTableHeaders = [
   {
     id: "profilePicture",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "",
   },
   {
     id: "name",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "Name",
   },
@@ -47,29 +40,13 @@ export const customerListTableHeaders = [
   },
   {
     id: "dateCreated",
-    Icon: FaSort,
+    Icon: "",
     action: () => {},
     label: "Created At",
   },
-
-  // {
-  //   id: "",
-  //   Icon: "",
-  //   action: () => {},
-  //   label: "Action",
-  // },
 ];
 
 export const customerListTableAction = [
-  {
-    icons: [active, disable],
-  },
-  {
-    icons: [edit],
-  },
-  {
-    icons: [deleteIcon],
-  },
   {
     icons: [visible],
   },

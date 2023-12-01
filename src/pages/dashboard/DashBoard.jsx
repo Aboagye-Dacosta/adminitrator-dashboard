@@ -6,11 +6,12 @@ import dashboard from "../../presentation/dashboard/dashboard_model";
 function DashBoard({ title }) {
   return (
     <PageLayout header={title}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full md:justify-between items-center justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 flex-1 md:justify-between items-center justify-center">
         {dashboard.map((item, id) => (
           <DashboardTile
             key={id}
             title={item.title}
+            path={item.link}
             Icon={item.icon}
             colors={item.colors}
           />

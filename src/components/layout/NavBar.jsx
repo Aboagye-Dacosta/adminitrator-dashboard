@@ -20,7 +20,7 @@ function NavBarComponent() {
   };
   return (
     <>
-      <Navbar className="flex-row shadow-none pl-0 pr-5 py-0 flex aligns-middle w-full items-center justify-between !bg-white rounded-none h-[5rem] ">
+      <Navbar className="flex-row  shadow-none pl-0 pr-5 py-0 flex aligns-middle w-full items-center justify-between !bg-white rounded-none h-[5rem] ">
         <div
           className="h-[5rem] flex items-center justify-center transition duration-200 bg-transparent hover:bg-primry px-5 hover:bg-primary"
           onClick={handleNavigation}

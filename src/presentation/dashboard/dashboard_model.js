@@ -3,7 +3,7 @@ import routes from "../routes_icons/routes";
 export default [
   {
     title: "Customers",
-    link: "/customers-list",
+    link: routes["Manage-Customers"]["links"]["Customer-list"]["url"],
     icon: routes["Manage-Customers"]["icon"],
     colors: {
       link: "bg-orange-900",
@@ -13,7 +13,9 @@ export default [
   },
   {
     title: "Service Providers",
-    link: "/service-providers-list",
+    link: routes["Manage-service-providers"]["links"]["Service-Provider-List"][
+      "url"
+    ],
     icon: routes["Manage-service-providers"]["icon"],
     colors: {
       link: "bg-green-900",
@@ -23,7 +25,7 @@ export default [
   },
   {
     title: "Payments",
-    link: "/payments",
+    link: routes["Manage-Payment"]["links"]["Payment-History"]["url"],
     icon: routes["Manage-Payment"]["icon"],
     colors: {
       link: "bg-red-900",
@@ -33,7 +35,9 @@ export default [
   },
   {
     title: "Service Order",
-    link: "/service-orders",
+    link: routes["Manage-Service-Request"]["links"]["Service Request List"][
+      "url"
+    ],
     icon: routes["Manage-Service-Request"]["icon"],
     colors: {
       link: "bg-blue-900",
@@ -43,7 +47,7 @@ export default [
   },
   {
     title: "Categories",
-    link: "/category-list",
+    link: routes["Service-Categories"]["links"]["Service Category List"]["url"],
     icon: routes["Service-Categories"]["icon"],
     colors: {
       link: "bg-orange-900",
@@ -53,7 +57,9 @@ export default [
   },
   {
     title: "Service Packages",
-    link: "/service-packages",
+    link: routes["Manage-Service-Packages"]["links"]["Service-Package-List"][
+      "url"
+    ],
     icon: routes["Manage-Service-Packages"]["icon"],
     colors: {
       link: "bg-green-900",
@@ -61,25 +67,24 @@ export default [
       bg: "bg-green-700",
     },
   },
-  {
-    title: "Addons",
-    link: "/addons",
-    icon: routes["Manage-Adds-ons"]["icon"],
-    colors: {
-      link: "bg-red-900",
-      icon: "text-red-900",
-      bg: "bg-red-700",
-    },
-  },
-  {
-    title: "Countries",
-    link: "/countries",
-    icon: routes["Manage-Countries"]["icon"],
-    colors: {
-      link: "bg-blue-900",
-      icon: "text-blue-900",
-      bg: "bg-blue-700",
-    },
-  },
+  // {
+  //   title: "Addons",
+  //   link: "/addons",
+  //   icon: routes["Manage-Adds-ons"]["icon"],
+  //   colors: {
+  //     link: "bg-red-900",
+  //     icon: "text-red-900",
+  //     bg: "bg-red-700",
+  //   },
+  // },
+  // {
+  //   title: "Countries",
+  //   link: "/countries",
+  //   icon: routes["Manage-Countries"]["icon"],
+  //   colors: {
+  //     link: "bg-blue-900",
+  //     icon: "text-blue-900",
+  //     bg: "bg-blue-700",
+  //   },
+  // },
 ];
-

@@ -5,11 +5,13 @@ export const statusObj = Object.freeze({
   idle: "idle",
   pending: "pending",
   fulfilled: "fulfilled",
+  error: "error",
 });
 
 const name = "customer";
 const initialState = {
   status: statusObj.idle,
+  errorMessage: "",
   customers: [],
 };
 
@@ -17,7 +19,7 @@ export const readAllCustomers = createAsyncThunk(
   `${name}/readAllCustomers`,
   async () => {
     const response = await readAll("/customerprofile");
-    return response.data;
+    return response;
   }
 );
 
@@ -31,9 +33,17 @@ const customerSlice = createSlice({
         state.status = statusObj.pending;
       })
       .addCase(readAllCustomers.fulfilled, (state, action) => {
-        state.customers = action.payload;
-
-        state.status = statusObj.fulfilled;
+        if (action.payload.error) {
+          state.status = statusObj.error;
+          state.errorMessage = action.payload.message;
+        } else {
+          state.customers = action.payload.data;
+          state.status = statusObj.fulfilled;
+        }
+      })
+      .addCase(readAllCustomers.rejected, (state) => {
+        state.errorMessage == "Sorry could not load data";
+        state.status = statusObj.error;
       });
   },
 });

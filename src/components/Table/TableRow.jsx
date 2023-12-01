@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
-function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
+import TableActionsData from "./TableActionsData";
+
+function TableRow ({ data, handleSelected, tableActions, checkAble, keys })
+{
   return (
     <tr className="odd:bg-blue-gray-50/50">
       {checkAble && (
@@ -8,7 +11,7 @@ function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
         </td>
       )}
       {keys.map((value, i) => {
-        if (value == "profilePicture") {
+        if (value.toLowerCase().indexOf("profile") != -1) {
           return (
             <td
               key={i}
@@ -17,8 +20,7 @@ function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
               <img src={data[value]} alt="" className="w-20 h-20" />
             </td>
           );
-        } else if (value == "Availability")
-        {
+        } else if (value == "Availability") {
           return (
             <td
               key={i}
@@ -27,9 +29,7 @@ function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
               <a href={data[value]} alt="" className="w-20 h-20" />
             </td>
           );
-        }
-        else
-        {
+        } else {
           return (
             <td
               key={i}
@@ -40,7 +40,7 @@ function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
           );
         }
       })}
-      {/* <TableActionsData actions={tableActions} /> */}
+      <TableActionsData actions={tableActions} />
     </tr>
   );
 }
