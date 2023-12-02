@@ -14,9 +14,13 @@ const initialState = {
   userRole: userRolesObj.superAdmin,
 };
 
-const login = createAsyncThunk(
-  "/auth/login",
-  ({ email, password, userRole }) => {}
+export const validateUser = createAsyncThunk(
+  "/auth/validateUser",
+  ({ username, password, userRole }) => {
+    return new Promise((res) => {
+      return res({ username, password, userRole });
+    });
+  }
 );
 
 const authSlice = createSlice({
@@ -29,19 +33,14 @@ const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(login.pending, (state) => {
+      .addCase(validateUser.pending, (state) => {
         state.status = statusObj.pending;
       })
-      .addCase(login.fulfilled, (state, action) => {
-        if (action.payload.error) {
-          state.status = statusObj.error;
-          state.errorMessage = action.payload.message;
-        } else {
-          state.customers = action.payload.data;
-          state.status = statusObj.fulfilled;
-        }
+      .addCase(validateUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.status = statusObj.fulfilled;
       })
-      .addCase(login.rejected, (state) => {
+      .addCase(validateUser.rejected, (state) => {
         state.errorMessage == "Sorry could not load data";
         state.status = statusObj.error;
       });

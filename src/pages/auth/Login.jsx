@@ -7,6 +7,7 @@ import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import {
   getLoggedInState,
   setUserRole,
+  validateUser,
 } from "../../service/features/authSlice";
 
 // eslint-disable-next-line react/prop-types
@@ -16,6 +17,14 @@ const LoginDisplay = ({ userRole }) => {
   const dispatch = useDispatch();
   const siteKey = import.meta.env.VITE_RACAPTCHA_SITE_KEY;
   //   const secrete = import.meta.env.VITE_RACAPTCHA_SECRETE_KEY;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append("userRole", role);
+    const data = Object.fromEntries(formData);
+    dispatch(validateUser(data));
+  };
 
   useEffect(() => {
     dispatch(setUserRole(role));
@@ -31,10 +40,16 @@ const LoginDisplay = ({ userRole }) => {
           <p className="text-black text-[1.4rem] ">
             Sign in to start your session
           </p>
-          <form action="" className="w-full mt-10 flex flex-col items-center">
+          <form
+            method="POST"
+            
+            className="w-full mt-10 flex flex-col items-center"
+            onSubmit={handleSubmit}
+          >
             <div className="flex items-center w-full border border-slate p-2">
               <input
                 type="text"
+                name="username"
                 required={true}
                 placeholder="username"
                 className="flex-1 border-none outline-none focus:outline-none text-[1.4rem] text-black"
@@ -43,6 +58,7 @@ const LoginDisplay = ({ userRole }) => {
             </div>
             <div className="flex items-center w-full border border-slate p-2 mt-7 mb-5">
               <input
+                name="password"
                 type="password"
                 required={true}
                 placeholder="password"
