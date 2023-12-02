@@ -36,13 +36,13 @@ export const servicePackageTableHeaders = [
     id: "category",
     Icon: FaSort,
     action: () => {},
-    label: "category",
+    label: "Category",
   },
   {
     id: "subCategory",
     Icon: FaSort,
     action: () => {},
-    label: "subCategory",
+    label: "Subcategory",
   },
   {
     id: "time",

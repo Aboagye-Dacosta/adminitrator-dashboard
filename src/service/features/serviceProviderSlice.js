@@ -21,7 +21,7 @@ const serviceProviderSlice = createSlice({
   initialState,
   reducers: {
     searchServiceProvider: (state, action) => {
-      state.suppliers = state.payments.filter(
+      state.suppliers = state.suppliers.filter(
         (customer) =>
           customer.name.toLowerCase().includes(action.payload) ||
           customer.email.toLowerCase().includes(action.payload)

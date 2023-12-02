@@ -11,7 +11,7 @@ const initialState = {
 export const readAllServiceRequests = createAsyncThunk(
   `${name}/readAllServiceRequests`,
   async () => {
-    const response = await readAll("/payments");
+    const response = await readAll("/servicerequest");
     return response.data;
   }
 );
@@ -36,16 +36,17 @@ const serviceRequestSlice = createSlice({
   name,
   initialState,
   reducers: {
-    resetPaymentStatus: (state) => {
+    resetServiceRequestStatus: (state) => {
       state.status = statusObj.idle;
     },
     searchServiceRequests: (state, action) => {
-      state.serviceRequests = state.payments.filter(
-        (customer) =>
-          customer.requestNumber.toLowerCase().includes(action.payload) ||
-          customer.customerEmail.toLowerCase().includes(action.payload) ||
-          customer.category.toLowerCase().includes(action.payload) ||
-          customer.subcategory.toLowerCase().includes(action.payload)
+      console.log(action.payload);
+      state.serviceRequests = state.serviceRequests.filter(
+        (request) =>
+          request.requestNumber.toLowerCase().includes(action.payload) ||
+          request.customerEmail.toLowerCase().includes(action.payload) ||
+          request.category.toLowerCase().includes(action.payload) ||
+          request.subcategory.toLowerCase().includes(action.payload)
       );
     },
   },
@@ -56,7 +57,6 @@ const serviceRequestSlice = createSlice({
       })
       .addCase(readAllServiceRequests.fulfilled, (state, action) => {
         state.serviceRequests = action.payload;
-
         state.status = statusObj.fulfilled;
       })
       .addCase(readServiceRequestsByCustomerEmail.pending, (state) => {
@@ -82,7 +82,7 @@ const serviceRequestSlice = createSlice({
   },
 });
 
-export const { resetPaymentStatus, searchServiceRequests } =
+export const { resetServiceRequestStatus, searchServiceRequests } =
   serviceRequestSlice.actions;
 
 export const getAllServiceRequests = (state) =>

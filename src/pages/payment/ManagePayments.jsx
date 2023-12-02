@@ -12,6 +12,8 @@ import {
   readAllPayments,
   readCustomerPaymentsByEmail,
   readServicePaymentsByEmail,
+  resetPaymentStatus,
+  searchPayment,
 } from "../../service/features/paymentSlice";
 import {
   filters,
@@ -47,8 +49,8 @@ function ManagePayments({ title }) {
     <PageLayout header={title} id="payment">
       <Container sideBarVisible={true}>
         <SearchBar
-          handleSubmit={() => {}}
-          handleChange={() => {}}
+          handleSubmit={(value) => dispatch(searchPayment(value))}
+          handleClear={() => dispatch(resetPaymentStatus())}
           placeholder={""}
           searchBy="Search by Request Number, Customer Fullname, Transaction ID"
         />

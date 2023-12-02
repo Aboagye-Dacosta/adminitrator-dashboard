@@ -20,13 +20,15 @@ import {
   readAllServiceRequests,
   readServiceRequestsByCustomerEmail,
   readServiceRequestsByServiceProviderEmail,
+  resetServiceRequestStatus,
+  searchServiceRequests,
 } from "../../service/features/serviceRequestSlice";
 
 // eslint-disable-next-line react/prop-types
 function ManageServiceRequest({ title }) {
   const dispatch = useDispatch();
   const serviceRequests = useSelector(getAllServiceRequests);
-  const status = useSelector((state) => state.payment.status);
+  const status = useSelector((state) => state.serviceRequest.status);
   const selectedEmail = useSelector(getSelectedEmail);
   const selectedFilter = useSelector(getFilterValue);
 
@@ -51,7 +53,8 @@ function ManageServiceRequest({ title }) {
       <Container sideBarVisible={true}>
         <SearchBar
           handleChange={() => {}}
-          handleSubmit={() => {}}
+          handleSubmit={(value) => dispatch(searchServiceRequests(value))}
+          handleClear={() => dispatch(resetServiceRequestStatus())}
           placeholder={""}
           searchBy="Search by Request Number, Customer Name or Category"
         />

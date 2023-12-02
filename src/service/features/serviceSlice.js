@@ -22,12 +22,12 @@ const servicesSlice = createSlice({
   initialState,
   reducers: {
     searchServices: (state, action) => {
-      state.serviceRequests = state.payments.filter(
+      state.services = state.services.filter(
         (customer) =>
-          customer.requestNumber.toLowerCase().includes(action.payload) ||
-          customer.customerEmail.toLowerCase().includes(action.payload) ||
+          customer.packageName.toLowerCase().includes(action.payload) ||
+          customer.providerEmail.toLowerCase().includes(action.payload) ||
           customer.category.toLowerCase().includes(action.payload) ||
-          customer.subcategory.toLowerCase().includes(action.payload)
+          customer.subCategory.toLowerCase().includes(action.payload)
       );
     },
   },

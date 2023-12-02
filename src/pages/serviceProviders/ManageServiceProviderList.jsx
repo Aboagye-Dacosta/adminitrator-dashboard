@@ -14,6 +14,7 @@ import { statusObj } from "../../service/features/customerSlice";
 import {
   getAllSupplier,
   readAllSuppliers,
+  searchServiceProvider,
 } from "../../service/features/serviceProviderSlice";
 
 // eslint-disable-next-line react/prop-types
@@ -35,7 +36,8 @@ function ManageServiceProviderList({ title }) {
           placeholder="Search by"
           searchBy="Search by Username or Email Address"
           handleChange={() => {}}
-          handleSubmit={() => {}}
+          handleSubmit={(value) => dispatch(searchServiceProvider(value))}
+          handleClear={() => dispatch(readAllSuppliers())}
         />
         <Table
           title="Service Provider List"

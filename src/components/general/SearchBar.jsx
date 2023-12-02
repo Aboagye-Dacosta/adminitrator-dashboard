@@ -37,10 +37,10 @@ function SearchBar({
           Search
         </Button>
         <Button
-          className="bg-white text-[1.2rem] text-black w-full md:w-[15rem]"
+          className="bg-slate text-[1.2rem] text-black w-[12rem]"
           onClick={clearSearch}
         >
-          Clear Search
+          Reset
         </Button>
       </div>
     </div>

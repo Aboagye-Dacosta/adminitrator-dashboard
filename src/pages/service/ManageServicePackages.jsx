@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllServices,
   readAllServices,
+  searchServices,
 } from "../../service/features/serviceSlice";
 
 // eslint-disable-next-line react/prop-types
@@ -32,7 +33,8 @@ function ManageServicePackages({ title }) {
       <Container>
         <SearchBar
           handleChange={() => {}}
-          handleSubmit={() => {}}
+          handleSubmit={(value) => dispatch(searchServices(value))}
+          handleClear={() => dispatch(readAllServices())}
           placeholder={""}
           searchBy="Search by Name, Category or SubCategory"
         />
