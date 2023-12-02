@@ -1,5 +1,5 @@
-import { FaCheck, FaEye } from "react-icons/fa";
-import { IoPencil } from "react-icons/io5";
+import { FaCheck, FaEye, FaLock } from "react-icons/fa";
+import { IoPencil, IoPerson } from "react-icons/io5";
 import { LuClock, LuNetwork } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { TiCancel } from "react-icons/ti";
@@ -12,6 +12,8 @@ export const tableIcons = {
   delete: MdDelete,
   manage: LuNetwork,
   track: LuClock,
+  person: IoPerson,
+  locked: FaLock,
 };
 
 export const active = {

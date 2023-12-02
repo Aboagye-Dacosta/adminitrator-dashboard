@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import NavBarComponent from "./components/layout/NavBar";
@@ -6,6 +7,7 @@ import ChangeUsername from "./pages/configuration/ChangeUsername";
 import DashBoard from "./pages/dashboard/DashBoard";
 
 import SideBarTwo from "./components/layout/SideBarTwo";
+import Login from "./pages/auth/Login";
 import ChangeEmail from "./pages/configuration/ChangeEmail";
 import ChangePassword from "./pages/configuration/ChangePassword";
 import HomePageContent from "./pages/configuration/HomePageContent";
@@ -17,17 +19,29 @@ import ManageServicePackages from "./pages/service/ManageServicePackages";
 import ManageServiceRequest from "./pages/service/ManageServiceRequest";
 import ManageServiceProviderList from "./pages/serviceProviders/ManageServiceProviderList";
 import routes from "./presentation/routes_icons/routes";
+import { getLoggedInState, userRolesObj } from "./service/features/authSlice";
 
 function App() {
+  const isLoggedIn = useSelector(getLoggedInState);
   return (
     <BrowserRouter>
-      <div className="overflow-x-scroll min-h-full max-w-[100vw] ">
+      <div className="overflow-auto min-h-full  max-w-[100vw] ">
         <div className="flex flex-row w-full h-full">
-          <SidebarComponent />
+          {isLoggedIn && <SidebarComponent />}
           <div className="flex-1 flex flex-col bg-gray-300">
-            <NavBarComponent />
+            {isLoggedIn && <NavBarComponent />}
             <div className="flex w-full relative">
               <Routes>
+                <Route
+                  exact
+                  path="/admin/login"
+                  element={<Login userRole={userRolesObj.superAdmin} />}
+                />
+                <Route
+                  exact
+                  path="/admins/admin/login"
+                  element={<Login userRole={userRolesObj.admin} />}
+                />
                 <Route
                   exact
                   path="/"

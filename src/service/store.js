@@ -6,6 +6,7 @@ import serviceProviderAndCustomerSlice from "./features/serviceProviderAndCustom
 import serviceProviderSlice from "./features/serviceProviderSlice";
 import serviceRequestSlice from "./features/serviceRequestSlice";
 import serviceSlice from "./features/serviceSlice";
+import authSlice from "./features/authSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     serviceProviderAndCustomer: serviceProviderAndCustomerSlice,
     service: serviceSlice,
     serviceRequest: serviceRequestSlice,
+    auth:authSlice
   },
 });
 

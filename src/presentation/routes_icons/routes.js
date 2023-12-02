@@ -4,6 +4,12 @@ import { GiNetworkBars } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import { LuNetwork } from "react-icons/lu";
 import { TbPackages } from "react-icons/tb";
+import { userRolesObj } from "../../service/features/authSlice";
+
+export const loginRoutes = {
+  [userRolesObj.admin]: "/admin/admins/login",
+  [userRolesObj.superAdmin]: "/admin/login",
+};
 
 export default {
   Configuration: {

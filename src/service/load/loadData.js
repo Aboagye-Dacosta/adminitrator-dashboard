@@ -1,8 +1,7 @@
 //load all customers
-export const BASE_URL = "https://calleva-node-app.onrender.com";
-
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 const readAll = async (path) => {
   try {
     const response = await axios.get(`${BASE_URL}${path}`);

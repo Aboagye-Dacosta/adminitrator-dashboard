@@ -1,9 +1,10 @@
 import DashboardTile from "../../components/Dashboard/DashboardTile";
+import withAuth from "../../components/auth/WithAuth";
 import PageLayout from "../../components/layout/PageCard";
 import dashboard from "../../presentation/dashboard/dashboard_model";
 
 // eslint-disable-next-line react/prop-types
-function DashBoard({ title }) {
+const DashBoard = withAuth(({ title }) => {
   return (
     <PageLayout header={title}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 flex-1 md:justify-between items-center justify-center">
@@ -20,6 +21,6 @@ function DashBoard({ title }) {
       <div></div>
     </PageLayout>
   );
-}
+});
 
 export default DashBoard;

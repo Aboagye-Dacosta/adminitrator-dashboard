@@ -1,14 +1,9 @@
 /* eslint-disable react/prop-types */
-import {
-  Breadcrumbs,
-  Card,
-  CardBody,
-  CardHeader,
-} from "@material-tailwind/react";
-
+import { Breadcrumbs } from "@material-tailwind/react";
 import { Link, useLocation } from "react-router-dom";
+import withAuth from "../auth/WithAuth";
 
-function PageLayout({ children, header }) {
+const PageLayout = withAuth(({ children, header }) => {
   const path = useLocation().pathname;
   const endPointList = path
     .substring(1)
@@ -17,8 +12,8 @@ function PageLayout({ children, header }) {
     .map((point) => point.split("-").join(" "));
 
   return (
-    <Card className="flex-1 flex lg:w-[50rem] flex-col min-h-screen  my-7 !bg-transparent border-none shadow-none relative">
-      <CardHeader className="text-[2rem] !shadow-none  !bg-transparent font-bold text-gray-700 py-5  px-5 flex lg:flex-row flex-col justify-between items-center">
+    <div className="flex-1 mx-4 flex lg:w-[50rem] flex-col min-h-screen  my-7 !bg-transparent border-none shadow-none relative">
+      <div className="text-[2rem] !shadow-none  !bg-transparent font-bold text-gray-700 py-5  px-5 flex lg:flex-row flex-col justify-between items-center">
         {header}
         <Breadcrumbs separator={">"} className="text-[1.2rem] mt-5 lg:mt-0">
           {endPointList.map((point, i) => (
@@ -27,10 +22,10 @@ function PageLayout({ children, header }) {
             </Link>
           ))}
         </Breadcrumbs>
-      </CardHeader>
-      <CardBody>{children}</CardBody>
-    </Card>
+      </div>
+      <div>{children}</div>
+    </div>
   );
-}
+});
 
 export default PageLayout;

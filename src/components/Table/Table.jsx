@@ -36,7 +36,7 @@ function Table({
   return (
     <div className="mt-20 relative">
       {status === statusObj.pending && (
-        <div className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2  ">
           <PuffLoader color="#fb8b24" size={100} />
         </div>
       )}

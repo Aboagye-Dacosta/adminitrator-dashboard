@@ -22,7 +22,7 @@ function SidebarCompnent() {
     <div
       className={`min-h-[100vh-5rem] pt-0 transition-[width] duration-500 ${
         openNav == true
-          ? "!w-[25rem] overflow-hidden"
+          ? "!w-[25rem] lg:overflow-hidden"
           : "w-0 overflow-hidden lg:w-[5rem] lg:overflow-visible"
       }  shadow-xl group/sideNav  shadow-blue-gray-900/5 border-r-0 rounded-none bg-black text-white z-50`}
     >

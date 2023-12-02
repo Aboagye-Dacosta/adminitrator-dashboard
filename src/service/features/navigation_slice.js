@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const name = "navigationSlice";
 const initialState = {
-  open: true,
+  open: false,
   sideTwo: false,
   isAlertOpen: false,
   alertData: {

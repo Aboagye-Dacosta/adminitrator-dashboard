@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import TableActionsData from "./TableActionsData";
 
-function TableRow ({ data, handleSelected, tableActions, checkAble, keys })
-{
+function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
   return (
     <tr className="odd:bg-blue-gray-50/50">
       {checkAble && (
@@ -18,6 +17,17 @@ function TableRow ({ data, handleSelected, tableActions, checkAble, keys })
               className="p-2 text-[1.3rem] text-black border border-slate"
             >
               <img src={data[value]} alt="" className="w-20 h-20" />
+            </td>
+          );
+        } else if (value == "status") {
+          return (
+            <td
+              key={i}
+              className="p-2 text-[1.3rem] border border-slate text-white"
+            >
+              <span className="bg-blue-700 px-2 py-2 block">
+                {data[value]}
+              </span>
             </td>
           );
         } else if (value == "Availability") {
