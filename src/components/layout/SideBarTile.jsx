@@ -21,14 +21,14 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
     <Accordion
       open={open === id}
       icon={openNav && <tableIcons.angleDown />}
-      className={`my-3 relative group/accordion ${
-        !openNav ? "w-[4rem]" : "w-full"
+      className={`my-3 relative group/accordion !min-w-0 ${
+        !openNav ? "w-[4rem]" : "w-[23rem]"
       }`}
     >
       <ListItem
         className={`${
           !openNav ? "w-[4rem]" : "w-full"
-        } p-0 hover:bg-primary selected:bg-primary focus:bg-primary active:bg-primary text-white overflow-hidden group-hover/navSidebar:overflow-visible  rounded-none`}
+        } p-0 hover:bg-primary selected:bg-primary focus:bg-primary active:bg-primary text-white overflow-hidden z-10 group-hover/navSidebar:z-100 group-hover/navSidebar:overflow-visible  rounded-none`}
         selected={open === id}
       >
         <AccordionHeader
@@ -65,7 +65,7 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
         </AccordionBody>
       )}
       {!openNav && (
-        <div className="absolute hidden group-hover/accordion:flex left-[4.1rem] top-0 group-hover/accordion:z-100  flex-col">
+        <div className="absolute w-[25rem]  hidden group-hover/accordion:flex left-[4.1rem] z-0 top-0 group-hover/accordion:z-100  flex-col">
           <div className="bg-gray-800 text-[1.5rem] text-white py-5">
             {title}
           </div>

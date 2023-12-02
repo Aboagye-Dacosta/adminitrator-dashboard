@@ -28,12 +28,13 @@ function ManageServicePackages({ title }) {
   }, [dispatch, status]);
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="servicePackage">
       <Container>
         <SearchBar
           handleChange={() => {}}
           handleSubmit={() => {}}
           placeholder={""}
+          searchBy="Search by Name, Category or SubCategory"
         />
         <Table
           columnHeaders={servicePackageTableHeaders}

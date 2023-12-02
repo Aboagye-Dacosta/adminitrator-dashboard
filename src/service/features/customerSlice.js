@@ -26,7 +26,16 @@ export const readAllCustomers = createAsyncThunk(
 const customerSlice = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    searchUser: (state, action) => {
+      console.log(action.payload);
+      state.customers = state.customers.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(action.payload) ||
+          customer.email.toLowerCase().includes(action.payload)
+      );
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(readAllCustomers.pending, (state) => {
@@ -48,6 +57,7 @@ const customerSlice = createSlice({
   },
 });
 
+export const { searchUser } = customerSlice.actions;
+
 export const getAllCustomers = (state) => state.customer.customers;
-// export const {} = customerSlice.actions;
 export default customerSlice.reducer;

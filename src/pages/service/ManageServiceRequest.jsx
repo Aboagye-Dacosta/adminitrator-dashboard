@@ -47,12 +47,13 @@ function ManageServiceRequest({ title }) {
   }, [loadData]);
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="serviceOrder">
       <Container sideBarVisible={true}>
         <SearchBar
           handleChange={() => {}}
           handleSubmit={() => {}}
           placeholder={""}
+          searchBy="Search by Request Number, Customer Name or Category"
         />
         <Table
           columnHeaders={serviceRequestTableHeaders}

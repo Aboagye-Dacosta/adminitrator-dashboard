@@ -29,12 +29,16 @@ function ManageServiceProviderList({ title }) {
   }, [dispatch, status]);
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="serviceProvider">
       <Container>
-        <SearchBar placeholder="Search by" />
-
+        <SearchBar
+          placeholder="Search by"
+          searchBy="Search by Username or Email Address"
+          handleChange={() => {}}
+          handleSubmit={() => {}}
+        />
         <Table
-          title="Plans List"
+          title="Service Provider List"
           checkAble={false}
           data={supplierList}
           columnHeaders={serviceProviderTableHeaders}

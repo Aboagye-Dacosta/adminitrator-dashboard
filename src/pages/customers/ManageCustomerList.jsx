@@ -14,6 +14,7 @@ import {
 import {
   getAllCustomers,
   readAllCustomers,
+  searchUser,
   statusObj,
 } from "../../service/features/customerSlice";
 
@@ -31,9 +32,17 @@ function ManageCustomerList({ title }) {
   }, [dispatch, status]);
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="customer">
       <Container>
-        <SearchBar placeholder="Search by" />
+        <div className="w-full flex-row flex justify-start">
+          
+          <SearchBar
+            placeholder="Search by"
+            searchBy="Search by Username or Email Address"
+            handleSubmit={(value) => dispatch(searchUser(value))}
+            handleClear={() => dispatch(readAllCustomers())}
+          />
+        </div>
         <Table
           checkAble={false}
           title="Customer List"

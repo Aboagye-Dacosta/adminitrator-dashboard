@@ -39,7 +39,14 @@ const paymentSlice = createSlice({
     resetPaymentStatus: (state) => {
       state.status = statusObj.idle;
     },
-    
+    searchUser: (state, action) => {
+      state.payments = state.payments.filter(
+        (customer) =>
+          customer.requestNumber.toLowerCase().includes(action.payload) ||
+          customer.customerEmail.toLowerCase().includes(action.payload) ||
+          customer.transactionID.toLowerCase().includes(action.payload)
+      );
+    },
   },
   extraReducers(builder) {
     builder
@@ -68,7 +75,7 @@ const paymentSlice = createSlice({
   },
 });
 
-export const { resetPaymentStatus } = paymentSlice.actions;
+export const { resetPaymentStatus, searchUser } = paymentSlice.actions;
 
 export const getAllPayments = (state) => state.payment.payments;
 

@@ -23,6 +23,8 @@ export const validateUser = createAsyncThunk(
   }
 );
 
+export const logoutUser = createAsyncThunk("/auth/logoutUser", async () => {});
+
 const authSlice = createSlice({
   name,
   initialState,
@@ -41,6 +43,18 @@ const authSlice = createSlice({
         state.status = statusObj.fulfilled;
       })
       .addCase(validateUser.rejected, (state) => {
+        state.errorMessage == "Sorry could not load data";
+        state.status = statusObj.error;
+      })
+      .addCase(logoutUser.pending, (state) => {
+        state.status = statusObj.pending;
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.status = statusObj.fulfilled;
+        state.isLoggedIn = false;
+      })
+      .addCase(logoutUser.rejected, (state) => {
         state.errorMessage == "Sorry could not load data";
         state.status = statusObj.error;
       });

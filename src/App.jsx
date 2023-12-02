@@ -161,11 +161,7 @@ function App() {
                   }
                   element={
                     <ManageServicePackages
-                      title={
-                        routes["Manage-Service-Packages"]["links"][
-                          "Service-Package-List"
-                        ]["title"]
-                      }
+                      title={routes["Manage-Service-Packages"]["title"]}
                     />
                   }
                 />
@@ -177,11 +173,7 @@ function App() {
                   }
                   element={
                     <ManageCustomerList
-                      title={
-                        routes["Manage-Customers"]["links"]["Customer-list"][
-                          "title"
-                        ]
-                      }
+                      title={routes["Manage-Customers"]["title"]}
                     />
                   }
                 />
@@ -194,11 +186,7 @@ function App() {
                   }
                   element={
                     <ManageServiceProviderList
-                      title={
-                        routes["Manage-service-providers"]["links"][
-                          "Service-Provider-List"
-                        ]["title"]
-                      }
+                      title={routes["Manage-service-providers"]["title"]}
                     />
                   }
                 />
@@ -208,13 +196,7 @@ function App() {
                     routes["Manage-Payment"]["links"]["Payment-History"]["url"]
                   }
                   element={
-                    <ManagePayments
-                      title={
-                        routes["Manage-Payment"]["links"]["Payment-History"][
-                          "title"
-                        ]
-                      }
-                    />
+                    <ManagePayments title={routes["Manage-Payment"]["title"]} />
                   }
                 />
               </Routes>

@@ -23,7 +23,7 @@ function SidebarCompnent() {
       className={`min-h-[100vh-5rem] pt-0 transition-[width] duration-500 ${
         openNav == true
           ? "!w-[25rem] lg:overflow-hidden"
-          : "w-0 overflow-hidden lg:w-[5rem] lg:overflow-visible"
+          : "w-0 overflow-hidden lg:w-[5rem]   lg:overflow-visible"
       }  shadow-xl group/sideNav  shadow-blue-gray-900/5 border-r-0 rounded-none bg-black text-white z-50`}
     >
       <h1 className="md:flex items-center justify-center text-[2rem] text-primary font-bold text-center bg-white hidden md:h-[5rem]">
@@ -34,9 +34,7 @@ function SidebarCompnent() {
         <ListItem
           selected={open === 0}
           onClick={() => handleOpen(0)}
-          className={`hover:bg-orange-700 py-4 rounded-none active:bg-primary ${
-            !openNav && "w-[4rem]"
-          }`}
+          className={`hover:bg-orange-700 py-4 rounded-none active:bg-primary `}
         >
           <Link
             to="/"

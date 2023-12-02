@@ -6,7 +6,7 @@ export const serviceRequestTableHeaders = [
     id: "requestNumber",
     Icon: FaSort,
     action: () => {},
-    label: "requestNumber",
+    label: "Request Number",
   },
   {
     id: "customerEmail",

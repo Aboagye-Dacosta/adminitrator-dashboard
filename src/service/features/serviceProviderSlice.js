@@ -19,7 +19,15 @@ export const readAllSuppliers = createAsyncThunk(
 const serviceProviderSlice = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    searchServiceProvider: (state, action) => {
+      state.suppliers = state.payments.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(action.payload) ||
+          customer.email.toLowerCase().includes(action.payload)
+      );
+    },
+  },
   extraReducers: (build) => {
     build
       .addCase(readAllSuppliers.pending, (state) => {
@@ -34,6 +42,8 @@ const serviceProviderSlice = createSlice({
       });
   },
 });
+
+export const { searchServiceProvider } = serviceProviderSlice.actions;
 
 export const getAllSupplier = (sate) => sate.serviceProvider.suppliers;
 

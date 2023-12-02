@@ -101,7 +101,7 @@ export default {
   },
   "Service-Categories": {
     id: 8,
-    title: "Service Categories",
+    title: "Manage Service Categories",
     icon: LuNetwork,
     links: {
       "Service Category List": {

@@ -44,12 +44,13 @@ function ManagePayments({ title }) {
   }, [loadData]);
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="payment">
       <Container sideBarVisible={true}>
         <SearchBar
           handleSubmit={() => {}}
           handleChange={() => {}}
           placeholder={""}
+          searchBy="Search by Request Number, Customer Fullname, Transaction ID"
         />
 
         <Table

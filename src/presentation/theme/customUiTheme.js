@@ -10,7 +10,7 @@ export const uiTheme =  {
           display: "flex",
           flexDirection: "flex-col",
           gap: "gap-1",
-          minWidth: "min-w-[240px]",
+          minWidth: "min-w-0",
           p: "p-2",
           fontFamily: "font-sans",
           fontSize: "text-base",

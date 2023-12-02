@@ -10,12 +10,13 @@ import {
 // eslint-disable-next-line react/prop-types
 function ManageServiceCategory({ title }) {
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="category">
       <Container>
         <SearchBar
           handleSubmit={() => {}}
           placeholder=""
           handleChange={() => {}}
+          searchBy="Search by Category Name"
         />
         <Table
           title="Plans List"

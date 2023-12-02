@@ -20,7 +20,17 @@ export const readAllServices = createAsyncThunk(
 const servicesSlice = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    searchServices: (state, action) => {
+      state.serviceRequests = state.payments.filter(
+        (customer) =>
+          customer.requestNumber.toLowerCase().includes(action.payload) ||
+          customer.customerEmail.toLowerCase().includes(action.payload) ||
+          customer.category.toLowerCase().includes(action.payload) ||
+          customer.subcategory.toLowerCase().includes(action.payload)
+      );
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(readAllServices.pending, (state) => {
@@ -37,6 +47,7 @@ const servicesSlice = createSlice({
   },
 });
 
+export const { searchServices } = servicesSlice.actions;
 export const getAllServices = (state) => state.service.services;
 // export const {} = customerSlice.actions;
 export default servicesSlice.reducer;

@@ -1,7 +1,7 @@
 import routes from "../routes_icons/routes";
 
-export default [
-  {
+export default {
+  customer: {
     title: "Customers",
     link: routes["Manage-Customers"]["links"]["Customer-list"]["url"],
     icon: routes["Manage-Customers"]["icon"],
@@ -11,7 +11,7 @@ export default [
       bg: "bg-primary",
     },
   },
-  {
+  serviceProvider: {
     title: "Service Providers",
     link: routes["Manage-service-providers"]["links"]["Service-Provider-List"][
       "url"
@@ -23,7 +23,7 @@ export default [
       bg: "bg-green-700",
     },
   },
-  {
+  payment: {
     title: "Payments",
     link: routes["Manage-Payment"]["links"]["Payment-History"]["url"],
     icon: routes["Manage-Payment"]["icon"],
@@ -33,7 +33,7 @@ export default [
       bg: "bg-red-700",
     },
   },
-  {
+  serviceOrder: {
     title: "Service Order",
     link: routes["Manage-Service-Request"]["links"]["Service Request List"][
       "url"
@@ -45,7 +45,7 @@ export default [
       bg: "bg-blue-700",
     },
   },
-  {
+  category: {
     title: "Categories",
     link: routes["Service-Categories"]["links"]["Service Category List"]["url"],
     icon: routes["Service-Categories"]["icon"],
@@ -55,7 +55,7 @@ export default [
       bg: "bg-primary",
     },
   },
-  {
+  servicePackage: {
     title: "Service Packages",
     link: routes["Manage-Service-Packages"]["links"]["Service-Package-List"][
       "url"
@@ -87,4 +87,4 @@ export default [
   //     bg: "bg-blue-700",
   //   },
   // },
-];
+};

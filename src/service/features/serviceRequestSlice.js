@@ -39,6 +39,15 @@ const serviceRequestSlice = createSlice({
     resetPaymentStatus: (state) => {
       state.status = statusObj.idle;
     },
+    searchServiceRequests: (state, action) => {
+      state.serviceRequests = state.payments.filter(
+        (customer) =>
+          customer.requestNumber.toLowerCase().includes(action.payload) ||
+          customer.customerEmail.toLowerCase().includes(action.payload) ||
+          customer.category.toLowerCase().includes(action.payload) ||
+          customer.subcategory.toLowerCase().includes(action.payload)
+      );
+    },
   },
   extraReducers(builder) {
     builder
@@ -73,7 +82,8 @@ const serviceRequestSlice = createSlice({
   },
 });
 
-export const { resetPaymentStatus } = serviceRequestSlice.actions;
+export const { resetPaymentStatus, searchServiceRequests } =
+  serviceRequestSlice.actions;
 
 export const getAllServiceRequests = (state) =>
   state.serviceRequest.serviceRequests;
