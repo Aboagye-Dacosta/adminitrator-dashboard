@@ -1,8 +1,8 @@
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosLogOut } from "react-icons/io";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 
 import {
   selectNavState,
@@ -24,7 +24,7 @@ function NavBarComponent() {
         className="h-[5rem] flex items-center justify-center transition duration-200 bg-transparent hover:bg-primry px-5 hover:bg-primary"
         onClick={handleNavigation}
       >
-        <GiHamburgerMenu className="text-black text-[2rem]" />
+        <tableIcons.bars className="text-black text-[2rem]" />
       </div>
 
       <div className="pb-20">
@@ -42,7 +42,7 @@ function NavBarComponent() {
           to="/"
           className="flex items-center justify-center lg:px-5 lg:hover:bg-slate lg:h-[5rem]"
         >
-          <IoIosLogOut className="mr-2" /> logout
+          <tableIcons.logout className="mr-2" /> logout
         </Link>
       </div>
     </div>

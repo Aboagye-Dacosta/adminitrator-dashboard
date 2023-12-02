@@ -1,7 +1,7 @@
-import DashboardTile from "../../components/Dashboard/DashboardTile";
+import DashboardTile from "../../components/dashboard/DashboardTile";
 import withAuth from "../../components/auth/WithAuth";
 import PageLayout from "../../components/layout/PageCard";
-import dashboard from "../../presentation/dashboard/dashboard_model";
+import dashboard from "../../presentation/dashboard/dashboardModel";
 
 // eslint-disable-next-line react/prop-types
 const DashBoard = withAuth(({ title }) => {

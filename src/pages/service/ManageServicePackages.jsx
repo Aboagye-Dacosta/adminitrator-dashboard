@@ -1,16 +1,19 @@
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
-import Table from "../../components/Table/Table";
-import { statusObj } from "../../service/features/customerSlice";
+import Table from "../../components/table/Table";
 import {
   servicePackageTableAction,
   servicePackageTableHeaders,
 } from "../../presentation/services/servicePackageTableModel";
+import { statusObj } from "../../service/features/customerSlice";
 
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllServices, readAllServices } from "../../service/features/serviceSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllServices,
+  readAllServices,
+} from "../../service/features/serviceSlice";
 
 // eslint-disable-next-line react/prop-types
 function ManageServicePackages({ title }) {

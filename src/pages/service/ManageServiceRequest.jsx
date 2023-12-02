@@ -1,7 +1,7 @@
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
-import Table from "../../components/Table/Table";
+import Table from "../../components/table/Table";
 import {
   serviceRequestTableActions,
   serviceRequestTableHeaders,
@@ -10,12 +10,17 @@ import {
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { statusObj } from "../../service/features/customerSlice";
-import { filters } from "../../service/features/serviceProviderAndCustomerSlice";
 import {
+  filters,
   getFilterValue,
   getSelectedEmail,
 } from "../../service/features/serviceProviderAndCustomerSlice";
-import { getAllServiceRequests, readAllServiceRequests, readServiceRequestsByCustomerEmail, readServiceRequestsByServiceProviderEmail } from "../../service/features/serviceRequestSlice";
+import {
+  getAllServiceRequests,
+  readAllServiceRequests,
+  readServiceRequestsByCustomerEmail,
+  readServiceRequestsByServiceProviderEmail,
+} from "../../service/features/serviceRequestSlice";
 
 // eslint-disable-next-line react/prop-types
 function ManageServiceRequest({ title }) {

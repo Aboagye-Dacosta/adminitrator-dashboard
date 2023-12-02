@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { IoCloseOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
+import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import PuffLoader from "react-spinners/PuffLoader";
 
 import Placeholder from "../../assets/imgs/person_placeholder.jpg";
@@ -62,7 +62,7 @@ function SideBarTwo() {
         className="h-10 w-10 hover:bg-slate text-[2rem] absolute right-3 top-4"
         onClick={() => dispatch(toggleSideTwo())}
       >
-        <IoCloseOutline />
+        <tableIcons.close />
       </div>
       <button  onClick={() => {
         dispatch(removerEmail());

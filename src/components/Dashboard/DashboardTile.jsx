@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import {tableIcons} from "../../presentation/routes_icons/iconsHolder"
 function DashboardTile({ title = "title", Icon, path = "/", colors }) {
   return (
     <Card
@@ -24,7 +23,7 @@ function DashboardTile({ title = "title", Icon, path = "/", colors }) {
         <Typography className="mx-3 group-hover/link:scale-105 transition-transform duration-100">
           More info
         </Typography>
-        <FaRegArrowAltCircleRight className="text-primary" />
+        <tableIcons.forward className="text-primary" />
       </Link>
     </Card>
   );

@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 // import PuffLoader from "react-spinners/PuffLoader";
 
-import Table from "../../components/Table/Table";
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
+import Table from "../../components/table/Table";
 
 import { useEffect } from "react";
 import {
@@ -22,7 +22,7 @@ function ManageCustomerList({ title }) {
   const dispatch = useDispatch();
   const customerList = useSelector(getAllCustomers);
   const status = useSelector((state) => state.customer.status);
-  const errorMessage = useSelector(state=>state.customer.errorMessage)
+  const errorMessage = useSelector((state) => state.customer.errorMessage);
 
   useEffect(() => {
     if (status === statusObj.idle) {

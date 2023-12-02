@@ -1,6 +1,6 @@
 import { Alert, Card } from "@material-tailwind/react";
-import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
+import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import {
   getAlertData,
   getAlertStatus,
@@ -23,14 +23,14 @@ function Container({ children, sideBarVisible = false }) {
             dispatch(toggleSideTwo());
           }}
         >
-          <BsLayoutSidebarInsetReverse className="text-[2rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <tableIcons.sidebar className="text-[2rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
       )}
 
       <div className="w-full mt-5 mb-10">
         <Alert
           open={open}
-          onClose={()=>dispatch(toggleAlert())}
+          onClose={() => dispatch(toggleAlert())}
           icon={<Icon className={`${iconColor} text-[1.5rem]`} />}
           className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem]`}
         >

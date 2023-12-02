@@ -9,10 +9,10 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-import { FaAngleDoubleDown } from "react-icons/fa";
 import { IoRadioButtonOffSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import { selectNavState } from "../../service/features/navigation_slice";
 
 function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
@@ -20,7 +20,7 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
   return (
     <Accordion
       open={open === id}
-      icon={openNav && <FaAngleDoubleDown />}
+      icon={openNav && <tableIcons.angleDown />}
       className={`my-3 relative group/accordion ${
         !openNav ? "w-[4rem]" : "w-full"
       }`}
@@ -55,7 +55,7 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
               <Link key={i} to={url}>
                 <ListItem className="text-gray-500 bg-none hover:bg-black hover:text-gray-600 focus:bg-black focus:text-gray-600 text-[1.2rem]  ">
                   <ListItemPrefix>
-                    <IoRadioButtonOffSharp />
+                    <tableIcons.circle />
                   </ListItemPrefix>
                   {title}
                 </ListItem>

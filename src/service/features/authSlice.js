@@ -10,7 +10,7 @@ const name = "auth";
 const initialState = {
   status: statusObj.idle,
   errorMessage: "",
-  isLoggedIn: false,
+  isLoggedIn: true,
   userRole: userRolesObj.superAdmin,
 };
 

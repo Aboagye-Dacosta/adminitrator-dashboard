@@ -1,5 +1,19 @@
-import { FaCheck, FaEye, FaLock } from "react-icons/fa";
-import { IoPencil, IoPerson } from "react-icons/io5";
+import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
+import {
+  FaAngleDoubleDown,
+  FaCheck,
+  FaEye,
+  FaLock,
+  FaRegArrowAltCircleRight,
+} from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosColorPalette, IoIosLogOut } from "react-icons/io";
+import {
+  IoCloseOutline,
+  IoPencil,
+  IoPerson,
+  IoRadioButtonOffSharp,
+} from "react-icons/io5";
 import { LuClock, LuNetwork } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { TiCancel } from "react-icons/ti";
@@ -14,6 +28,14 @@ export const tableIcons = {
   track: LuClock,
   person: IoPerson,
   locked: FaLock,
+  forward: FaRegArrowAltCircleRight,
+  sidebar: BsLayoutSidebarInsetReverse,
+  bars: GiHamburgerMenu,
+  logout: IoIosLogOut,
+  dashboard: IoIosColorPalette,
+  circle: IoRadioButtonOffSharp,
+  angleDown: FaAngleDoubleDown,
+  close: IoCloseOutline,
 };
 
 export const active = {
