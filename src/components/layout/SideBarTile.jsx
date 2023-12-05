@@ -20,8 +20,16 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
   return (
     <Accordion
       open={open === id}
-      icon={openNav && <tableIcons.angleDown />}
-      className={`my-3 relative group/accordion !min-w-0 ${
+      icon={
+        openNav && (
+          <tableIcons.angleDown
+            className={`${
+              id === open ? "rotate-180" : ""
+            } h-5 w-5 transition-transform`}
+          />
+        )
+      }
+      className={`my-3 relative group/accordion !min-w-0 whitespace-nowrap  ${
         !openNav ? "w-[4rem]" : "w-[23rem]"
       }`}
     >
@@ -51,16 +59,18 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
       {openNav && (
         <AccordionBody className="py-1 bg-blue-gray-900 ml-4">
           <List className="p-0 ">
-            {links.map(({ url, title }, i) => (
-              <Link key={i} to={url}>
-                <ListItem className="text-gray-500 bg-none hover:bg-black hover:text-gray-600 focus:bg-black focus:text-gray-600 text-[1.2rem]  ">
-                  <ListItemPrefix>
-                    <tableIcons.circle />
-                  </ListItemPrefix>
-                  {title}
-                </ListItem>
-              </Link>
-            ))}
+            {links
+              .filter((item) => !item.ignore)
+              .map(({ url, title }, i) => (
+                <Link key={i} to={url}>
+                  <ListItem className="text-gray-500 bg-none hover:bg-black hover:text-gray-600 focus:bg-black focus:text-gray-600 text-[1.2rem]  ">
+                    <ListItemPrefix>
+                      <tableIcons.circle />
+                    </ListItemPrefix>
+                    {title}
+                  </ListItem>
+                </Link>
+              ))}
           </List>
         </AccordionBody>
       )}
@@ -70,16 +80,18 @@ function SideBarTile({ Icon, title, links = [], id, handleOpen, open }) {
             {title}
           </div>
           <List className=" bg-gray-900">
-            {links.map(({ url, title }, i) => (
-              <Link key={i} to={url}>
-                <ListItem className="text-gray-500 bg-none hover:bg-black hover:text-gray-600 focus:bg-black focus:text-gray-600 text-[1.2rem]  ">
-                  <ListItemPrefix>
-                    <IoRadioButtonOffSharp />
-                  </ListItemPrefix>
-                  {title}
-                </ListItem>
-              </Link>
-            ))}
+            {links
+              .filter((item) => !item.ignore)
+              .map(({ url, title }, i) => (
+                <Link key={i} to={url}>
+                  <ListItem className="text-gray-500 bg-none hover:bg-black hover:text-gray-600 focus:bg-black focus:text-gray-600 text-[1.2rem]  ">
+                    <ListItemPrefix>
+                      <IoRadioButtonOffSharp />
+                    </ListItemPrefix>
+                    {title}
+                  </ListItem>
+                </Link>
+              ))}
           </List>
         </div>
       )}

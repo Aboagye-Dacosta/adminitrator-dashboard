@@ -20,14 +20,17 @@ export default {
       "Change-username": {
         title: "Change username",
         url: "/admin/configuration/change-username",
+        ignore: false,
       },
       "Change-password": {
         title: "Change Password",
         url: "/admin/configuration/change-password",
+        ignore: false,
       },
       "Change-email": {
         title: "Change email",
         url: "admin/configuration/email",
+        ignore: false,
       },
       "Site-settings": {
         title: "Site settings",
@@ -36,6 +39,7 @@ export default {
       "Homepage-content": {
         title: "Homepage content",
         url: "/admin/configuration/homepage-configuration",
+        ignore: false,
       },
     },
   },
@@ -47,6 +51,17 @@ export default {
       "Customer-list": {
         title: "Customer list",
         url: "/admin/customers",
+        ignore: false,
+      },
+      "create-customer": {
+        title: "Add New Customer",
+        url: "/admin/customers/create-customer",
+        ignore: true,
+      },
+      "update-customer": {
+        title: "Add New Customer",
+        url: "/admin/customers/update-customer/:id",
+        ignore: true,
       },
     },
   },
@@ -58,6 +73,7 @@ export default {
       "Service-Provider-List": {
         title: "Service Provider List",
         url: "/admin/service-providers",
+        ignore: false,
       },
     },
   },
@@ -74,6 +90,7 @@ export default {
       "Payment-History": {
         title: "Payment History",
         url: "/admin/payments/history",
+        ignore: false,
       },
     },
   },
@@ -96,6 +113,7 @@ export default {
       "Service Request List": {
         title: "Service Request List",
         url: "/admin/service-request-list",
+        ignore: false,
       },
     },
   },
@@ -107,6 +125,7 @@ export default {
       "Service Category List": {
         title: "Service Category List",
         url: "/admin/service-category-list",
+        ignore: false,
       },
     },
   },
@@ -118,6 +137,7 @@ export default {
       "Service-Package-List": {
         title: "Service Package List",
         url: "/admin/services/service-package-list",
+        ignore: false,
       },
     },
   },

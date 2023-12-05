@@ -5,7 +5,7 @@ import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
 import Table from "../../components/table/Table";
-import { managePaymentListHeaders } from "../../presentation/payments/managePaymentModel";
+import { managePaymentListHeaders, paymentActions } from "../../presentation/payments/managePaymentModel";
 import { statusObj } from "../../service/features/customerSlice";
 import {
   getAllPayments,
@@ -61,7 +61,7 @@ function ManagePayments({ title }) {
           columnHeaders={managePaymentListHeaders}
           handleChecked={() => {}}
           status={status}
-          tableActions={[]}
+          tableActions={paymentActions}
         />
       </Container>
     </PageLayout>

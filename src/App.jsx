@@ -12,7 +12,9 @@ import ChangeEmail from "./pages/configuration/ChangeEmail";
 import ChangePassword from "./pages/configuration/ChangePassword";
 import HomePageContent from "./pages/configuration/HomePageContent";
 import SiteSettings from "./pages/configuration/SiteSettings";
+import ManageAddCustomer from "./pages/customers/ManageAddCustomer";
 import ManageCustomerList from "./pages/customers/ManageCustomerList";
+import UpdateCustomerProfile from "./pages/customers/UpdateCustomerProfile";
 import ManagePayments from "./pages/payment/ManagePayments";
 import ManageServiceCategory from "./pages/service/ManageServiceCategory";
 import ManageServicePackages from "./pages/service/ManageServicePackages";
@@ -174,6 +176,40 @@ function App() {
                   element={
                     <ManageCustomerList
                       title={routes["Manage-Customers"]["title"]}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path={
+                    routes["Manage-Customers"]["links"]["create-customer"][
+                      "url"
+                    ]
+                  }
+                  element={
+                    <ManageAddCustomer
+                      title={
+                        routes["Manage-Customers"]["links"]["create-customer"][
+                          "title"
+                        ]
+                      }
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path={
+                    routes["Manage-Customers"]["links"]["update-customer"][
+                      "url"
+                    ]
+                  }
+                  element={
+                    <UpdateCustomerProfile
+                      title={
+                        routes["Manage-Customers"]["links"]["update-customer"][
+                          "title"
+                        ]
+                      }
                     />
                   }
                 />

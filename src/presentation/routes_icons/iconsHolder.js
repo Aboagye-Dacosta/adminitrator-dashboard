@@ -1,11 +1,11 @@
 import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
 import {
-  FaAngleDoubleDown,
   FaCheck,
   FaEye,
   FaLock,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosColorPalette, IoIosLogOut } from "react-icons/io";
 import {
@@ -34,7 +34,7 @@ export const tableIcons = {
   logout: IoIosLogOut,
   dashboard: IoIosColorPalette,
   circle: IoRadioButtonOffSharp,
-  angleDown: FaAngleDoubleDown,
+  angleDown: FaAngleDown,
   close: IoCloseOutline,
 };
 
@@ -43,7 +43,7 @@ export const active = {
   icon: tableIcons.active,
   handler: () => {},
   colors: {
-    light: "bg-green-600",
+    light: "!bg-green-600",
     dark: "hover:bg-green-900",
   },
 };
@@ -52,7 +52,7 @@ export const disable = {
   icon: tableIcons.disable,
   handler: () => {},
   colors: {
-    light: "bg-red-700",
+    light: "!bg-red-700",
     dark: "hover:bg-red-900",
   },
 };

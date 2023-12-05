@@ -1,4 +1,10 @@
-import { visible } from "../routes_icons/iconsHolder";
+import {
+  active,
+  deleteIcon,
+  disable,
+  edit,
+  visible,
+} from "../routes_icons/iconsHolder";
 
 export const customerListTableHeaders = [
   {
@@ -44,9 +50,24 @@ export const customerListTableHeaders = [
     action: () => {},
     label: "Created At",
   },
+  // {
+  //   id: "actions",
+  //   Icon: "",
+  //   action: () => {},
+  //   label: "Action",
+  // },
 ];
 
 export const customerListTableAction = [
+  {
+    icons: [disable, active],
+  },
+  {
+    icons: [edit],
+  },
+  {
+    icons: [deleteIcon],
+  },
   {
     icons: [visible],
   },

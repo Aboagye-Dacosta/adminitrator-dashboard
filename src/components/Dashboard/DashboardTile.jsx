@@ -5,12 +5,12 @@ import {tableIcons} from "../../presentation/routes_icons/iconsHolder"
 function DashboardTile({ title = "title", Icon, path = "/", colors }) {
   return (
     <Card
-      className={`relative w-full grid grid-row-[4fr_1fr] h-[15rem] my-5 pb-0 group ${colors.bg}`}
+      className={`relative w-full grid grid-row-[4fr_1fr] h-[15rem] my-5 pb-0 group ${colors.bg} rounded-none`}
     >
       <Icon
         className={`text-[10rem] bg-inherit ${colors.icon} !bg-clip-text absolute right-2 top-4 z-10 group-hover:scale-110 transition-transform duration-200 `}
       />
-      <CardBody className="z-20 col-span-5">
+      <CardBody className="z-20 col-span-5 ">
         <div className=" w-full">
           <span className="text-[4rem] text-white">22</span>
           <h2 className="text-white font-bold text-[1.2rem]">{title}</h2>

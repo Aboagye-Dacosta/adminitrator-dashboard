@@ -17,7 +17,7 @@ function TableActionsData({ actions }) {
   };
   const [statusObj, setStatusObj] = useState(generateState());
 
-  const styles = "block p-2 h-full bg-primary text-[1.7rem] mr-1 text-white";
+  const styles = "block p-2 h-full bg-primary text-[1.7rem] mr-2 text-white rounded-md";
   return (
     // <td>{ "hello"}</td>
     <td>

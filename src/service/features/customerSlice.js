@@ -60,4 +60,6 @@ const customerSlice = createSlice({
 export const { searchUser } = customerSlice.actions;
 
 export const getAllCustomers = (state) => state.customer.customers;
+export const selectCustomerById = (id) => (state) =>
+  state.customer.customers.filter((customer) => customer._id === id);
 export default customerSlice.reducer;

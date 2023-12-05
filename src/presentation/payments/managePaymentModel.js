@@ -1,4 +1,5 @@
 import { FaSort } from "react-icons/fa";
+import { visible } from "../routes_icons/iconsHolder";
 
 export const managePaymentListHeaders = [
   {
@@ -55,6 +56,15 @@ export const managePaymentListHeaders = [
     action: () => {},
     label: "status",
   },
-];
+];  
+
+export const paymentActions = [
+  {
+    icons: [
+      visible
+    ]
+  }
+]
+
 
 

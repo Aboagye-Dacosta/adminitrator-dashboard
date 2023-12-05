@@ -46,7 +46,7 @@ function Table({
       </div>
       <table className="w-full min-w-max table-auto text-left px-3 py-4 overflow-x-scroll">
         <thead>
-          <tr>
+          <tr className="text-[1.5rem]">
             {checkAble && (
               <th className="border border-slate p-4">
                 <input type="checkbox" onChange={handleChecked} />
@@ -59,7 +59,7 @@ function Table({
                   onClick={value.action}
                   className="border border-slate"
                 >
-                  <span className="flex text-[1.5rem] font-bold ">
+                  <span className="flex  font-bold ">
                     <span className="font-normal leading-none opacity-70 text-primary mr-3">
                       {value.label}
                     </span>
@@ -68,6 +68,9 @@ function Table({
                 </th>
               );
             })}
+            <th className="border border-slate py-4 font-normal leading-none opacity-70 text-primary">
+              Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -90,7 +93,6 @@ function Table({
           }
         </tbody>
       </table>
-   
     </div>
   );
 }

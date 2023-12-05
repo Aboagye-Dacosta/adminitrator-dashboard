@@ -15,7 +15,7 @@ function Container({ children, sideBarVisible = false }) {
   const open = useSelector(getAlertStatus);
   const Icon = icon;
   return (
-    <div className="relative bg-white flex-1 border-t-2 overflow-x-scroll rounded-none border-primary px-5 py-10  min-h-[50vh]  ">
+    <div className="relative bg-white flex-1 border-t-2 overflow-auto rounded-none border-primary px-5 py-10  min-h-[50vh]  ">
       {sideBarVisible && (
         <div
           className="h-20 w-20 hover:bg-slate text-center absolute top-5 right-5 "
