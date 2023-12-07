@@ -3,7 +3,7 @@ import FormImageInput from "../../components/form/FormImageInput";
 import FormTextAreaInput from "../../components/form/FormTextAreaInput";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
-import PageLayout from "../../components/layout/PageCard";
+import PageLayout from "../../components/layout/PageLayout";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";

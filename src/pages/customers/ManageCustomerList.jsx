@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
-import PageLayout from "../../components/layout/PageCard";
+import PageLayout from "../../components/layout/PageLayout";
 import Table from "../../components/table/Table";
 
 import { useEffect } from "react";

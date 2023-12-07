@@ -2,7 +2,7 @@ import FormActionButtons from "../../components/form/FormActionButtons";
 import FormImageInput from "../../components/form/FormImageInput";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
-import PageLayout from "../../components/layout/PageCard";
+import PageLayout from "../../components/layout/PageLayout";
 
 // eslint-disable-next-line react/prop-types
 function ManageAddCustomer({ title }) {
