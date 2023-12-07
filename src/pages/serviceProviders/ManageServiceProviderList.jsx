@@ -35,7 +35,7 @@ function ManageServiceProviderList({ title }) {
   return (
     <PageLayout header={title} id="serviceProvider">
       <Container>
-        <div className="flex justify-between items-baseline">
+        <div className="flex justify-between items-center ">
           <SearchBar
             placeholder="Search by"
             searchBy="Search by Username or Email Address"
@@ -50,7 +50,7 @@ function ManageServiceProviderList({ title }) {
               ]["url"]
             }
           >
-            <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max">
+            <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max whitespace-nowrap ml-5 mt-6">
               Add Service Provider
             </Button>
           </Link>

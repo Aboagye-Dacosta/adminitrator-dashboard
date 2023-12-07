@@ -17,8 +17,8 @@ function SearchBar({
   return (
     <div className="self-end flex flex-col">
       <span className="text-[1.2rem] mb-4">{searchBy}</span>
-      <div className="flex flex-row  items-center justify-start">
-        <div className="border border-black w-full  md:w-[20rem]  py-2 px-1 mb-5 md:mb-0">
+      <div className="flex flex-row  items-start">
+        <div className="border border-black w-[20rem]  py-2 px-1 mb-5 md:mb-0 mr-3">
           <input
             type="text"
             value={value}
@@ -31,7 +31,7 @@ function SearchBar({
           />
         </div>
         <Button
-          className="bg-primary md:mx-5 text-[1.2rem] w-full mb-2 md:mb-0 md:w-[10rem]"
+          className="bg-primary md:mx-5 text-[1.2rem] mb-2 md:mb-0 w-[12rem] mr-3"
           onClick={() => handleSubmit(value)}
         >
           Search

@@ -37,7 +37,7 @@ function ManageCustomerList({ title }) {
   return (
     <PageLayout header={title} id="customer">
       <Container>
-        <div className="flex justify-between items-baseline">
+        <div className="flex justify-between items-center ">
           <SearchBar
             placeholder="Search by"
             searchBy="Search by Username or Email Address"
@@ -48,7 +48,7 @@ function ManageCustomerList({ title }) {
           <Link
             to={routes["Manage-Customers"]["links"]["create-customer"]["url"]}
           >
-            <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max">
+            <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max whitespace-nowrap ml-5 mt-6">
               Add Customer
             </Button>
           </Link>
