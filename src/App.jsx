@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 
 import NavBarComponent from "./components/layout/NavBar";
 import SidebarComponent from "./components/layout/SideBar";
@@ -28,7 +28,7 @@ import { getLoggedInState, userRolesObj } from "./service/features/authSlice";
 function App() {
   const isLoggedIn = useSelector(getLoggedInState);
   return (
-    <BrowserRouter>
+    <Router>
       <div className="overflow-auto min-h-full  max-w-[100vw] ">
         <div className="flex flex-row w-full h-full">
           {isLoggedIn && <SidebarComponent />}
@@ -269,7 +269,7 @@ function App() {
           </div>
         </div>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
