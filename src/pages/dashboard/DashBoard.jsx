@@ -1,5 +1,5 @@
 import withAuth from "../../components/auth/WithAuth";
-import DashboardTile from "../../components/dashboard/DashboardTile.jsx";
+import DashboardTile from "./DashboardTile.jsx";
 import PageLayout from "../../components/layout/PageLayout.jsx";
 import dashboard from "../../presentation/dashboard/dashboardModel";
 
