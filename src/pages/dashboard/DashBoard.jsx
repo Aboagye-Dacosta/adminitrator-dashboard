@@ -1,6 +1,6 @@
 import withAuth from "../../components/auth/WithAuth";
-import DashboardTile from "../../components/dashboard/DashboardTile";
-import PageLayout from "../../components/layout/PageCard";
+import DashboardTile from "../../components/dashboard/DashboardTile.jsx";
+import PageLayout from "../../components/layout/PageLayout.jsx";
 import dashboard from "../../presentation/dashboard/dashboardModel";
 
 // eslint-disable-next-line react/prop-types

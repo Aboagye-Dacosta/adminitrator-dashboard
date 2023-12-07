@@ -1,7 +1,7 @@
 import { Button } from "@material-tailwind/react";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
-import PageLayout from "../../components/layout/PageCard";
+import PageLayout from "../../components/layout/PageLayout";
 
 // eslint-disable-next-line react/prop-types
 function ChangeEmail({ title }) {
