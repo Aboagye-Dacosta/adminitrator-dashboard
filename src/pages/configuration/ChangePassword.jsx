@@ -1,4 +1,4 @@
-import { Button } from "@material-tailwind/react";
+import FormActionButtons from "../../components/form/FormActionButtons";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
@@ -21,20 +21,7 @@ function ChangePassword({ title }) {
             <FormTextInput label={"New Password"} name="newPassword" />
             <FormTextInput label={"Confirm Password"} name="confirmPassword" />
           </div>
-          <div className="ml-60">
-            <Button
-              className="bg-primary text-[1.2rem] text-white mr-3"
-              type="submit"
-            >
-              Save
-            </Button>
-            <Button
-              className="bg-white text-[1.2rem] text-black"
-              onClick={handleCancel}
-            >
-              Cancle
-            </Button>
-          </div>
+          <FormActionButtons handleCancel={handleCancel} />
         </form>
       </Container>
     </PageLayout>

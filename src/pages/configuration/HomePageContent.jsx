@@ -1,14 +1,13 @@
-import { Button } from "@material-tailwind/react";
-
 import FormImageInput from "../../components/form/FormImageInput";
 import FormSectionDivider from "../../components/form/FormSectionDivider";
 import FormTextInput from "../../components/form/FormTextInput";
 
+import FormActionButtons from "../../components/form/FormActionButtons";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
 
 // eslint-disable-next-line react/prop-types
-function HomePageContent({title}) {
+function HomePageContent({ title }) {
   const handleSave = (e) => {
     e.preventDefault();
     console.log(e);
@@ -122,20 +121,7 @@ function HomePageContent({title}) {
             label="Service Request Number"
             name="serviceRequestNumber"
           />
-          <div className="ml-60">
-            <Button
-              className="bg-primary text-[1.2rem] text-white mr-3"
-              type="submit"
-            >
-              Submit
-            </Button>
-            <Button
-              className="bg-white text-[1.2rem] text-black"
-              onClick={handleCancel}
-            >
-              Cancle
-            </Button>
-          </div>
+          <FormActionButtons handleCancel={handleCancel} />
         </form>
       </Container>
     </PageLayout>

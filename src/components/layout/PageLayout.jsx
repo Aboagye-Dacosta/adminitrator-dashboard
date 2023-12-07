@@ -17,7 +17,7 @@ const PageLayout = withAuth(({ children, header, id, other }) => {
             <tableIcons.dashboard className="mr-2" />
             Dashboard
           </Link>
-          {header != "Dashboard" && (
+          {header != "Dashboard" && id && (
             <span className="hover:text-black">
               {" "}
               {dashboardModel[id].title}
