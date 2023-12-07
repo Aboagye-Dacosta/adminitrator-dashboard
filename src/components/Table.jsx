@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
-import { errorAlertObj } from "../../presentation/routes_icons/alertModel";
-import { statusObj } from "../../service/features/customerSlice";
+import { errorAlertObj } from "../presentation/routes_icons/alertModel";
+import { statusObj } from "../service/features/customerSlice";
 import {
   setAlertData,
   toggleAlert,
-} from "../../service/features/navigation_slice";
+} from "../service/features/navigation_slice";
 import TableRow from "./TableRow";
 /* eslint-disable react/prop-types */
 function Table({

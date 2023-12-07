@@ -4,22 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
-import Table from "../../components/table/Table";
+import Table from "../../components/Table";
 
+import { Button } from "@material-tailwind/react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   customerListTableAction,
   customerListTableHeaders,
 } from "../../presentation/customers/customerListTableModel";
+import routes from "../../presentation/routes_icons/routes";
 import {
   getAllCustomers,
   readAllCustomers,
   searchUser,
   statusObj,
 } from "../../service/features/customerSlice";
-import { Button } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
-import routes from "../../presentation/routes_icons/routes";
 
 // eslint-disable-next-line react/prop-types
 function ManageCustomerList({ title }) {
@@ -45,7 +45,9 @@ function ManageCustomerList({ title }) {
             handleClear={() => dispatch(readAllCustomers())}
           />
 
-          <Link to={routes["Manage-Customers"]["links"]["create-customer"]["url"]}>
+          <Link
+            to={routes["Manage-Customers"]["links"]["create-customer"]["url"]}
+          >
             <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max">
               Add Customer
             </Button>
@@ -59,7 +61,7 @@ function ManageCustomerList({ title }) {
           errorMessage={errorMessage}
           data={customerList}
           columnHeaders={customerListTableHeaders}
-          handleChecked={() => { }}
+          handleChecked={() => {}}
           tableActions={customerListTableAction}
         />
       </Container>

@@ -1,7 +1,7 @@
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
-import Table from "../../components/table/Table";
+import Table from "../../components/Table";
 import {
   serviceCategoryTableActions,
   serviceCategoryTableHeaders,
