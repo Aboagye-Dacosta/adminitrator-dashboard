@@ -49,7 +49,7 @@ function FormImageInput({
             />
           ) : file ? (
             <img
-              className=" w-1/6 object-cover object-center"
+              className=" w-1/6 object-contain object-center h-[10rem] "
               src={file}
               alt="nature image"
             />

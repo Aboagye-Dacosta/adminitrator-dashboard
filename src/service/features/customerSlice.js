@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { readAll } from "../load/loadData";
+import { readAll, updateById } from "../load/loadData";
 
 export const statusObj = Object.freeze({
   idle: "idle",
@@ -21,6 +21,21 @@ export const readAllCustomers = createAsyncThunk(
     const response = await readAll("/customerprofile");
     return response;
   }
+);
+
+export const updateCustomerById = createAsyncThunk(
+  `${name}/updateCustomerById`,
+  async ({ id, data }) => {
+    const response = await updateById({ id, data }, "/customerprofile");
+    return response;
+  }
+);
+export const createCustomer = createAsyncThunk(
+  `${name}/createCustomer`,
+  async (data) => {
+    const response = await updateById(data, "/customerprofile");
+    return response;
+  } 
 );
 
 const customerSlice = createSlice({

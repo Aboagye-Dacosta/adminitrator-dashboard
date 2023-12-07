@@ -54,13 +54,13 @@ export default {
         ignore: false,
       },
       "create-customer": {
-        title: "Add New Customer",
+        title: "Add Customer",
         url: "/admin/customers/create-customer",
         ignore: true,
       },
       "update-customer": {
-        title: "Add New Customer",
-        url: "/admin/customers/update-customer/:id",
+        title: "Update CUstomer info",
+        url: "/admin/customers/update-customer",
         ignore: true,
       },
     },
@@ -74,6 +74,16 @@ export default {
         title: "Service Provider List",
         url: "/admin/service-providers",
         ignore: false,
+      },
+      "Create-Service-Provider": {
+        title: "Add Service Provider",
+        url: "/admin/service-providers/create-service-provider",
+        ignore: true,
+      },
+      "Update-Service-Provider": {
+        title: "Update Service Provider",
+        url: "/admin/service-providers/update-service-provider",
+        ignore: true,
       },
     },
   },

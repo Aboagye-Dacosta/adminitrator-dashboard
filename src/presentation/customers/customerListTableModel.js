@@ -5,6 +5,7 @@ import {
   edit,
   visible,
 } from "../routes_icons/iconsHolder";
+import routes from "../routes_icons/routes";
 
 export const customerListTableHeaders = [
   {
@@ -63,7 +64,12 @@ export const customerListTableAction = [
     icons: [disable, active],
   },
   {
-    icons: [edit],
+    icons: [
+      {
+        ...edit,
+        link: routes["Manage-Customers"]["links"]["update-customer"]["url"],
+      },
+    ],
   },
   {
     icons: [deleteIcon],

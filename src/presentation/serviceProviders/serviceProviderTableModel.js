@@ -1,4 +1,5 @@
-import { visible } from "../routes_icons/iconsHolder";
+import { deleteIcon, edit, visible } from "../routes_icons/iconsHolder";
+import routes from "../routes_icons/routes";
 
 export const serviceProviderTableHeaders = [
   {
@@ -60,6 +61,19 @@ export const serviceProviderTableHeaders = [
 
 export const serviceProviderTableAction = [
   {
+    icons: [
+      {
+        ...edit,
+        link: routes["Manage-service-providers"]["links"][
+          "Update-Service-Provider"
+        ]["url"],
+      },
+    ],
+  },
+  {
     icons: [visible],
+  },
+  {
+    icons: [deleteIcon],
   },
 ];

@@ -19,7 +19,9 @@ import ManagePayments from "./pages/payment/ManagePayments";
 import ManageServiceCategory from "./pages/service/ManageServiceCategory";
 import ManageServicePackages from "./pages/service/ManageServicePackages";
 import ManageServiceRequest from "./pages/service/ManageServiceRequest";
+import ManageAddServiceProvider from "./pages/serviceProviders/ManageAddServiceProvider";
 import ManageServiceProviderList from "./pages/serviceProviders/ManageServiceProviderList";
+import UpdateServiceProvider from "./pages/serviceProviders/UpdateServiceProvider";
 import routes from "./presentation/routes_icons/routes";
 import { getLoggedInState, userRolesObj } from "./service/features/authSlice";
 
@@ -198,11 +200,7 @@ function App() {
                 />
                 <Route
                   exact
-                  path={
-                    routes["Manage-Customers"]["links"]["update-customer"][
-                      "url"
-                    ]
-                  }
+                  path={`${routes["Manage-Customers"]["links"]["update-customer"]["url"]}/:id`}
                   element={
                     <UpdateCustomerProfile
                       title={
@@ -223,6 +221,36 @@ function App() {
                   element={
                     <ManageServiceProviderList
                       title={routes["Manage-service-providers"]["title"]}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path={
+                    routes["Manage-service-providers"]["links"][
+                      "Create-Service-Provider"
+                    ]["url"]
+                  }
+                  element={
+                    <ManageAddServiceProvider
+                      title={
+                        routes["Manage-service-providers"]["links"][
+                          "Create-Service-Provider"
+                        ]["title"]
+                      }
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path={`${routes["Manage-service-providers"]["links"]["Update-Service-Provider"]["url"]}/:id`}
+                  element={
+                    <UpdateServiceProvider
+                      title={
+                        routes["Manage-service-providers"]["links"][
+                          "Update-Service-Provider"
+                        ]["title"]
+                      }
                     />
                   }
                 />

@@ -27,4 +27,30 @@ const readAll = async (path) => {
   }
 };
 
-export { readAll };
+const createData = async (data, path) => {
+  try {
+    const response = await axios.post(path, data, {
+      baseURL: BASE_URL,
+    });
+
+    if (response.status == 200) {
+      return await response.data;
+    }
+    return new Error("sorry something happened");
+  } catch (error) {
+    return error;
+  }
+};
+
+const updateById = async ({ id, ...data }, path) => {
+  try {
+    const response = await axios.put(`${path}/${id}`, data, {
+      baseURL: BASE_URL,
+    });
+    if (response.status) return await response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export { createData, readAll, updateById };

@@ -37,7 +37,7 @@ function ManageCustomerList({ title }) {
   return (
     <PageLayout header={title} id="customer">
       <Container>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-baseline">
           <SearchBar
             placeholder="Search by"
             searchBy="Search by Username or Email Address"
@@ -59,7 +59,7 @@ function ManageCustomerList({ title }) {
           errorMessage={errorMessage}
           data={customerList}
           columnHeaders={customerListTableHeaders}
-          handleChecked={() => {}}
+          handleChecked={() => { }}
           tableActions={customerListTableAction}
         />
       </Container>

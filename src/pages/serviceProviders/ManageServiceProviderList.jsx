@@ -1,11 +1,14 @@
+import { Button } from "@material-tailwind/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import SearchBar from "../../components/general/SearchBar";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageCard";
 import Table from "../../components/table/Table";
 
+import routes from "../../presentation/routes_icons/routes";
 import {
   serviceProviderTableAction,
   serviceProviderTableHeaders,
@@ -32,13 +35,27 @@ function ManageServiceProviderList({ title }) {
   return (
     <PageLayout header={title} id="serviceProvider">
       <Container>
-        <SearchBar
-          placeholder="Search by"
-          searchBy="Search by Username or Email Address"
-          handleChange={() => {}}
-          handleSubmit={(value) => dispatch(searchServiceProvider(value))}
-          handleClear={() => dispatch(readAllSuppliers())}
-        />
+        <div className="flex justify-between items-baseline">
+          <SearchBar
+            placeholder="Search by"
+            searchBy="Search by Username or Email Address"
+            handleChange={() => {}}
+            handleSubmit={(value) => dispatch(searchServiceProvider(value))}
+            handleClear={() => dispatch(readAllSuppliers())}
+          />
+          <Link
+            to={
+              routes["Manage-service-providers"]["links"][
+                "Create-Service-Provider"
+              ]["url"]
+            }
+          >
+            <Button className="bg-slate px-2 text-black text-[1.2rem] py-3 h-max">
+              Add Service Provider
+            </Button>
+          </Link>
+        </div>
+
         <Table
           title="Service Provider List"
           checkAble={false}

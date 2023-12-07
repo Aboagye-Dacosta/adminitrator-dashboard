@@ -8,15 +8,15 @@ import PageLayout from "../../components/layout/PageCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
-  selectCustomerById,
-  updateCustomerById,
-} from "../../service/features/customerSlice";
+  selectServiceProviderById,
+  updateServiceProviderById,
+} from "../../service/features/serviceProviderSlice";
 
 // eslint-disable-next-line react/prop-types
-function UpdateCustomerProfile({ title }) {
+function UpdateServiceProvider({ title }) {
   const id = useParams().id;
   const dispatch = useDispatch();
-  const customer = useSelector(selectCustomerById(id))[0];
+  const customer = useSelector(selectServiceProviderById(id))[0];
 
   console.log("update data", customer);
 
@@ -26,13 +26,11 @@ function UpdateCustomerProfile({ title }) {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    dispatch(updateCustomerById(id, data));
+    dispatch(updateServiceProviderById(id, data));
   };
 
-
-
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="serviceProvider">
       <Container>
         <form onSubmit={handleSubmit} method="Post">
           <FormTextInput label="Name" name="name" value={customer.name} />
@@ -66,4 +64,4 @@ function UpdateCustomerProfile({ title }) {
   );
 }
 
-export default UpdateCustomerProfile;
+export default UpdateServiceProvider;

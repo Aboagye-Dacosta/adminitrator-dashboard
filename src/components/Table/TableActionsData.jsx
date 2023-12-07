@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 function TableActionsData({ actions }) {
@@ -17,9 +18,9 @@ function TableActionsData({ actions }) {
   };
   const [statusObj, setStatusObj] = useState(generateState());
 
-  const styles = "block p-2 h-full bg-primary text-[1.7rem] mr-2 text-white rounded-md";
+  const styles =
+    "block p-2 h-full bg-primary text-[1.7rem] mr-2 text-white rounded-md";
   return (
-    // <td>{ "hello"}</td>
     <td>
       <span className="flex flex-row flex-wrap">
         {actions.map((value) => {
@@ -60,7 +61,17 @@ function TableActionsData({ actions }) {
 
           const Icon = value.icons[0].icon;
           const handler = value.icons[0].handler;
-          return (
+          return value.icons[0].type == "link" ? (
+            <Link to={`${value.icons[0].link}`}>
+              <span
+                className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
+                key={value}
+                onClick={handler}
+              >
+                <Icon className="!text-[2rem]" />
+              </span>
+            </Link>
+          ) : (
             <span
               className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
               key={value}

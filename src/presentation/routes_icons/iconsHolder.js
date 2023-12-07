@@ -41,6 +41,8 @@ export const tableIcons = {
 export const active = {
   key: "active",
   icon: tableIcons.active,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "!bg-green-600",
@@ -50,6 +52,8 @@ export const active = {
 export const disable = {
   key: "disable",
   icon: tableIcons.disable,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "!bg-red-700",
@@ -60,6 +64,8 @@ export const disable = {
 export const visible = {
   key: "visible",
   icon: tableIcons.visible,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "bg-primary",
@@ -70,7 +76,8 @@ export const visible = {
 export const edit = {
   key: "edit",
   icon: tableIcons.edit,
-  handler: () => {},
+  type: "link",
+  link: "",
   colors: {
     light: "bg-primary",
     dark: "hover:bg-orange-900",
@@ -80,6 +87,8 @@ export const edit = {
 export const deleteIcon = {
   key: "delete",
   icon: tableIcons.delete,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "bg-red-700",
@@ -90,6 +99,8 @@ export const deleteIcon = {
 export const manage = {
   key: "manage",
   icon: tableIcons.manage,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "bg-blue-600",
@@ -100,6 +111,8 @@ export const manage = {
 export const track = {
   key: "track",
   icon: tableIcons.track,
+  type: "button",
+
   handler: () => {},
   colors: {
     light: "bg-yellow-700",
