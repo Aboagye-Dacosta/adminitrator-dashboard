@@ -17,7 +17,7 @@ function SearchBar({
   return (
     <div className="self-end flex flex-col">
       <span className="text-[1.2rem] mb-4">{searchBy}</span>
-      <div className="flex w-full flex-col md:flex-row  items-center justify-start">
+      <div className="flex flex-row  items-center justify-start">
         <div className="border border-black w-full  md:w-[20rem]  py-2 px-1 mb-5 md:mb-0">
           <input
             type="text"
