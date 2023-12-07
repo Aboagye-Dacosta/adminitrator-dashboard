@@ -3,11 +3,16 @@ import FormImageInput from "../../components/form/FormImageInput";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
+import routes from "../../presentation/routes_icons/routes";
 
 // eslint-disable-next-line react/prop-types
 function ManageAddServiceProvider({ title }) {
   return (
-    <PageLayout header={title} id="serviceProvider">
+    <PageLayout
+      header={title}
+      id="serviceProvider"
+      other={routes["Manage-service-providers"]["links"]["Create-Service-Provider"]}
+    >
       <Container>
         <form>
           <FormTextInput label="Name" name="name" />

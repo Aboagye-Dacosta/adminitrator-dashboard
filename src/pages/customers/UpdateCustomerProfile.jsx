@@ -32,7 +32,7 @@ function UpdateCustomerProfile({ title }) {
 
 
   return (
-    <PageLayout header={title}>
+    <PageLayout header={title} id="customer">
       <Container>
         <form onSubmit={handleSubmit} method="Post">
           <FormTextInput label="Name" name="name" value={customer.name} />

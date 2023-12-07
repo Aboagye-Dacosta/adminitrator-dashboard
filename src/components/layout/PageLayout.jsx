@@ -5,7 +5,7 @@ import dashboardModel from "../../presentation/dashboard/dashboardModel";
 import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import withAuth from "../auth/WithAuth";
 
-const PageLayout = withAuth(({ children, header, id }) => {
+const PageLayout = withAuth(({ children, header, id, other }) => {
   let Icon = "";
   if (id) Icon = dashboardModel[id].icon;
   return (
@@ -18,12 +18,21 @@ const PageLayout = withAuth(({ children, header, id }) => {
             Dashboard
           </Link>
           {header != "Dashboard" && (
-            <span className="hover:text-black">{header}</span>
+            <span className="hover:text-black">
+              {" "}
+              {dashboardModel[id].title}
+            </span>
           )}
           {id && (
             <Link to={dashboardModel[id].link} className="flex items-center">
               {<Icon className="mr-2" />}
               {dashboardModel[id].title} List
+            </Link>
+          )}
+          {other && (
+            <Link to={other.url} className="flex items-center">
+              {<Icon className="mr-2" />}
+              {other.title}
             </Link>
           )}
         </Breadcrumbs>

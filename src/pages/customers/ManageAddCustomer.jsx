@@ -3,11 +3,16 @@ import FormImageInput from "../../components/form/FormImageInput";
 import FormTextInput from "../../components/form/FormTextInput";
 import Container from "../../components/layout/Container";
 import PageLayout from "../../components/layout/PageLayout";
+import routes from "../../presentation/routes_icons/routes";
 
 // eslint-disable-next-line react/prop-types
 function ManageAddCustomer({ title }) {
   return (
-    <PageLayout header={title}>
+    <PageLayout
+      header={title}
+      id="customer"
+      other={routes["Manage-Customers"]["links"]["create-customer"]}
+    >
       <Container>
         <form>
           <FormTextInput label="Name" name="name" />
