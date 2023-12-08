@@ -32,7 +32,7 @@ function Container({ children, sideBarVisible = false }) {
           open={open}
           onClose={() => dispatch(toggleAlert())}
           icon={<Icon className={`${iconColor} text-[1.5rem]`} />}
-          className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem]`}
+          className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem] w-11/12`}
         >
           {message}
         </Alert>

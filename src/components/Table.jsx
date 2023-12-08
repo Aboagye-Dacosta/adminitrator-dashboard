@@ -20,15 +20,18 @@ function Table({
   errorMessage = "",
 }) {
   const dispatch = useDispatch();
-  console.log("from table", status);
   const statusState = status;
 
   useEffect(() => {
     console.log("came here");
     console.log("from table", statusState);
     if (statusState == statusObj.error) {
-      errorAlertObj.message = errorMessage;
-      dispatch(setAlertData(errorAlertObj));
+      dispatch(
+        setAlertData({
+          ...errorAlertObj,
+          message: errorMessage,
+        })
+      );
       dispatch(toggleAlert());
     }
   }, [dispatch, errorMessage, statusState]);
