@@ -15,6 +15,7 @@ import {
   readAllServices,
   searchServices,
 } from "../../service/features/serviceSlice";
+import { dialogContentTye } from "../../service/features/navigation_slice";
 
 // eslint-disable-next-line react/prop-types
 function ManageServicePackages({ title }) {
@@ -46,6 +47,7 @@ function ManageServicePackages({ title }) {
           title="Service Packages List"
           tableActions={servicePackageTableAction}
           dialogTitle="Service Package Detail"
+          dialogType={dialogContentTye.profile}
         />
       </Container>
     </PageLayout>

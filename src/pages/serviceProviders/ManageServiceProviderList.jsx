@@ -14,6 +14,7 @@ import {
   serviceProviderTableHeaders,
 } from "../../presentation/serviceProviders/serviceProviderTableModel";
 import { statusObj } from "../../service/features/customer/customerSlice";
+import { dialogContentTye } from "../../service/features/navigation_slice";
 import {
   checkAllServiceProviders,
   getAllSupplier,
@@ -32,7 +33,7 @@ function ManageServiceProviderList({ title }) {
   const supplierList = useSelector(getAllSupplier);
   const status = useSelector((state) => state.serviceProvider.status);
   const message = useSelector((state) => state.serviceProvider.errorMessage);
-  const checkState = useSelector(getSuperCheckedState)
+  const checkState = useSelector(getSuperCheckedState);
   useEffect(() => {
     if (status === statusObj.idle) {
       dispatch(readAllSuppliers());
@@ -77,6 +78,8 @@ function ManageServiceProviderList({ title }) {
           getCheckedAction={getSelectedServiceProviders}
           checkAll={() => dispatch(checkAllServiceProviders())}
           uncheckAll={() => dispatch(uncheckAllServiceProvides())}
+          dialogTitle="Service Provider Detail"
+          dialogType={dialogContentTye.profile}
         />
       </Container>
     </PageLayout>
