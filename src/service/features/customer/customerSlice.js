@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { readAll, updateById } from "../load/loadData";
+import { readAll } from "../../load/loadData";
 
 export const statusObj = Object.freeze({
   idle: "idle",
@@ -23,21 +23,6 @@ export const readAllCustomers = createAsyncThunk(
   }
 );
 
-export const updateCustomerById = createAsyncThunk(
-  `${name}/updateCustomerById`,
-  async ({ id, data }) => {
-    const response = await updateById({ id, data }, "/customerprofile");
-    return response;
-  }
-);
-export const createCustomer = createAsyncThunk(
-  `${name}/createCustomer`,
-  async (data) => {
-    const response = await updateById(data, "/customerprofile");
-    return response;
-  } 
-);
-
 const customerSlice = createSlice({
   name,
   initialState,
@@ -49,6 +34,9 @@ const customerSlice = createSlice({
           customer.name.toLowerCase().includes(action.payload) ||
           customer.email.toLowerCase().includes(action.payload)
       );
+    },
+    resetCustomerStatus: (state) => {
+      state.status = statusObj.idle;
     },
   },
   extraReducers(builder) {
@@ -72,7 +60,7 @@ const customerSlice = createSlice({
   },
 });
 
-export const { searchUser } = customerSlice.actions;
+export const { searchUser, resetCustomerStatus } = customerSlice.actions;
 
 export const getAllCustomers = (state) => state.customer.customers;
 export const selectCustomerById = (id) => (state) =>

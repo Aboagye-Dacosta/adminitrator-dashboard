@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { readAll } from "../load/loadData";
-import { statusObj } from "./customerSlice";
+import { statusObj } from "./customer/customerSlice";
 
 const name = "payment";
 const initialState = {

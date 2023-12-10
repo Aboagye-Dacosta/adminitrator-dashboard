@@ -40,7 +40,7 @@ function SearchBar({
           className="bg-slate text-[1.2rem] text-black w-[12rem]"
           onClick={clearSearch}
         >
-          Reset
+          Clear
         </Button>
       </div>
     </div>

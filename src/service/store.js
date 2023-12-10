@@ -1,23 +1,31 @@
 import { configureStore } from "@reduxjs/toolkit";
-import customerSlice from "./features/customerSlice";
+import authSlice from "./features/authSlice";
+import createCustomerSlice from "./features/customer/createCustomerSlice";
+import customerSlice from "./features/customer/customerSlice";
+import updateCustomerSlice from "./features/customer/updateCustomerSlice";
 import navigationSlice from "./features/navigation_slice";
 import paymentSlice from "./features/paymentSlice";
+import createServiceProviderSlice from "./features/serviceProvider/createServiceProviderSlice";
+import serviceProviderSlice from "./features/serviceProvider/serviceProviderSlice";
+import updateServiceProviderSlice from "./features/serviceProvider/updateServiceProviderSlice";
 import serviceProviderAndCustomerSlice from "./features/serviceProviderAndCustomerSlice";
-import serviceProviderSlice from "./features/serviceProviderSlice";
 import serviceRequestSlice from "./features/serviceRequestSlice";
 import serviceSlice from "./features/serviceSlice";
-import authSlice from "./features/authSlice";
 
 const store = configureStore({
   reducer: {
     navigationController: navigationSlice,
     customer: customerSlice,
+    updateCustomer: updateCustomerSlice,
+    createCustomer: createCustomerSlice,
     serviceProvider: serviceProviderSlice,
+    createServiceProvider: createServiceProviderSlice,
+    updateServiceProvider: updateServiceProviderSlice,
     payment: paymentSlice,
     serviceProviderAndCustomer: serviceProviderAndCustomerSlice,
     service: serviceSlice,
     serviceRequest: serviceRequestSlice,
-    auth:authSlice
+    auth: authSlice,
   },
 });
 

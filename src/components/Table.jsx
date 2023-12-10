@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
 import { errorAlertObj } from "../presentation/routes_icons/alertModel";
-import { statusObj } from "../service/features/customerSlice";
-import {
-  setAlertData,
-  toggleAlert,
-} from "../service/features/navigation_slice";
+import { statusObj } from "../service/features/customer/customerSlice";
+import { openAlert, setAlertData } from "../service/features/navigation_slice";
+import TableFooterActionSection from "./TableFooterActionSection";
 import TableRow from "./TableRow";
 /* eslint-disable react/prop-types */
 function Table({
@@ -16,8 +14,12 @@ function Table({
   handleChecked,
   tableActions,
   status,
-  checkAble = false,
+  checkAble = true,
   errorMessage = "",
+  setCheckedAction,
+  getCheckedAction,
+  checkAll,
+  uncheckAll,
 }) {
   const dispatch = useDispatch();
   const statusState = status;
@@ -32,7 +34,7 @@ function Table({
           message: errorMessage,
         })
       );
-      dispatch(toggleAlert());
+      dispatch(openAlert());
     }
   }, [dispatch, errorMessage, statusState]);
 
@@ -52,7 +54,13 @@ function Table({
           <tr className="text-[1.5rem]">
             {checkAble && (
               <th className="border border-slate p-4">
-                <input type="checkbox" onChange={handleChecked} />
+                <input
+                  type="checkbox"
+                  onChange={(e) => {
+                    if (e.target.checked == true) checkAble();
+                    if (e.target.checked == false) uncheckAll();
+                  }}
+                />
               </th>
             )}
             {columnHeaders.map((value, i) => {
@@ -90,12 +98,19 @@ function Table({
                       .map((value) => value.id)}
                     tableActions={tableActions}
                     checkAble={checkAble}
+                    setCheckedAction={setCheckedAction}
+                    getCheckedAction={getCheckedAction}
                   />
                 );
               }))
           }
         </tbody>
       </table>
+      <TableFooterActionSection
+        handleSelectAll={checkAll}
+        handleUnselectAll={uncheckAll}
+        selectionObject={["one", "two"]}
+      />
     </div>
   );
 }

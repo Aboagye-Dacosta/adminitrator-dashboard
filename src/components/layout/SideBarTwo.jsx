@@ -4,7 +4,7 @@ import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import PuffLoader from "react-spinners/PuffLoader";
 
 import Placeholder from "../../assets/imgs/person_placeholder.jpg";
-import { statusObj } from "../../service/features/customerSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 import
   {
     selectSideTwo,

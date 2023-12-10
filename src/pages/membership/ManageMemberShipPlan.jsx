@@ -22,7 +22,7 @@ import {
 } from "../../service/features/customer/customerSlice";
 
 // eslint-disable-next-line react/prop-types
-function ManageCustomerList({ title }) {
+function ManageMemberShipPlan({ title }) {
   const dispatch = useDispatch();
   const customerList = useSelector(getAllCustomers);
   const status = useSelector((state) => state.customer.status);
@@ -55,7 +55,6 @@ function ManageCustomerList({ title }) {
         </div>
 
         <Table
-          checkAble={true}
           title="Customer List"
           status={status}
           errorMessage={errorMessage}
@@ -69,4 +68,4 @@ function ManageCustomerList({ title }) {
   );
 }
 
-export default ManageCustomerList;
+export default ManageMemberShipPlan;

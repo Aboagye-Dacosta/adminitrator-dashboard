@@ -6,7 +6,7 @@ import {
   servicePackageTableAction,
   servicePackageTableHeaders,
 } from "../../presentation/services/servicePackageTableModel";
-import { statusObj } from "../../service/features/customerSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

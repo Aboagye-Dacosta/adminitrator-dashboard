@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { readAll } from "../load/loadData";
-import { statusObj } from "./customerSlice";
+import { statusObj } from "./customer/customerSlice";
 
 export const filters = Object.freeze({
   customers: "Customers",
-  suppliers: "Suppliers",
+  suppliers: "Service Providers",
 });
+
 const name = "serviceProviderAndCustomerSlice";
 const initialState = {
   filter: filters.customers,

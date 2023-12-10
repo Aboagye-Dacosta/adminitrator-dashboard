@@ -9,7 +9,7 @@ import {
   managePaymentListHeaders,
   paymentActions,
 } from "../../presentation/payments/managePaymentModel";
-import { statusObj } from "../../service/features/customerSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 import {
   getAllPayments,
   readAllPayments,

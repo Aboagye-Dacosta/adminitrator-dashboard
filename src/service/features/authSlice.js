@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { statusObj } from "./customerSlice";
+import { statusObj } from "./customer/customerSlice";
 
 export const userRolesObj = Object.freeze({
   admin: "admin",

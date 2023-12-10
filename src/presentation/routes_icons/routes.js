@@ -1,10 +1,5 @@
-import { FaMoneyBill } from "react-icons/fa";
-import { FaPeopleGroup } from "react-icons/fa6";
-import { GiNetworkBars } from "react-icons/gi";
-import { IoIosSettings } from "react-icons/io";
-import { LuNetwork } from "react-icons/lu";
-import { TbPackages } from "react-icons/tb";
 import { userRolesObj } from "../../service/features/authSlice";
+import { tableIcons } from "./iconsHolder";
 
 export const loginRoutes = {
   [userRolesObj.admin]: "/admin/admins/login",
@@ -15,7 +10,7 @@ export default {
   Configuration: {
     id: 1,
     title: "Configuration",
-    icon: IoIosSettings,
+    icon: tableIcons.setting,
     links: {
       "Change-username": {
         title: "Change username",
@@ -46,7 +41,7 @@ export default {
   "Manage-Customers": {
     id: 2,
     title: "Manage Customers",
-    icon: FaPeopleGroup,
+    icon: tableIcons.people,
     links: {
       "Customer-list": {
         title: "Customer list",
@@ -68,7 +63,7 @@ export default {
   "Manage-service-providers": {
     id: 4,
     title: "Manage service providers",
-    icon: FaPeopleGroup,
+    icon: tableIcons.people,
     links: {
       "Service-Provider-List": {
         title: "Service Provider List",
@@ -90,7 +85,7 @@ export default {
   "Manage-Payment": {
     id: 5,
     title: "Manage Payment",
-    icon: FaMoneyBill,
+    icon: tableIcons.money,
 
     links: {
       // "Withdrawal-Request": {
@@ -104,21 +99,21 @@ export default {
       },
     },
   },
-  // "Membership-Plan": {
-  //   id: 6,
-  //   title: "Membership Plan",
-  //   icon: MdOutlineAttachMoney,
-  //   links: {
-  //     "Membership-plan-list": {
-  //       title: "Membership plan list ",
-  //       url: "/admin/membership-plan-list",
-  //     },
-  //   },
-  // },
+  "Membership-Plan": {
+    id: 6,
+    title: "Membership Plan",
+    icon: tableIcons.dollar,
+    links: {
+      "Membership-plan-list": {
+        title: "Membership plan list ",
+        url: "/admin/membership-plan-list",
+      },
+    },
+  },
   "Manage-Service-Request": {
     id: 7,
     title: "Manage Service Request",
-    icon: GiNetworkBars,
+    icon: tableIcons.network,
     links: {
       "Service Request List": {
         title: "Service Request List",
@@ -130,7 +125,7 @@ export default {
   "Service-Categories": {
     id: 8,
     title: "Manage Service Categories",
-    icon: LuNetwork,
+    icon: tableIcons.category,
     links: {
       "Service Category List": {
         title: "Service Category List",
@@ -142,7 +137,7 @@ export default {
   "Manage-Service-Packages": {
     id: 9,
     title: "Manage Service Packages",
-    icon: TbPackages,
+    icon: tableIcons.package,
     links: {
       "Service-Package-List": {
         title: "Service Package List",
@@ -162,17 +157,17 @@ export default {
   //     },
   //   },
   // },
-  // "Manage-Countries": {
-  //   id: 11,
-  //   title: "Manage Countries  ",
-  //   icon: GiWorld,
-  //   links: {
-  //     "Country List": {
-  //       title: "Country List",
-  //       url: "/admin/countries",
-  //     },
-  //   },
-  // },
+  "Manage-Countries": {
+    id: 11,
+    title: "Manage Countries  ",
+    icon: tableIcons.world,
+    links: {
+      "Country List": {
+        title: "Country List",
+        url: "/admin/countries",
+      },
+    },
+  },
   // "Manage-Pages": {
   //   id: 12,
   //   title: "Manage Pages",

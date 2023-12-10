@@ -1,3 +1,4 @@
+import { Tooltip } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -29,40 +30,60 @@ function TableActionsData({ actions }) {
             const Icon2 = value.icons[1].icon;
 
             return statusObj[value.icons[0].key] ? (
-              <span
-                className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
+              <Tooltip
                 key={value.icons[0].key}
-                onClick={() => {
-                  value.icons[0].handler();
-                  setStatusObj((state) => ({
-                    ...state,
-                    [value.icons[0].key]: false,
-                  }));
-                }}
+                content={value.icons[0].tooltip}
               >
-                <Icon1 className="!text-[2rem] " />
-              </span>
+                <span
+                  className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
+                  onClick={() => {
+                    value.icons[0].handler();
+                    setStatusObj((state) => ({
+                      ...state,
+                      [value.icons[0].key]: false,
+                    }));
+                  }}
+                >
+                  <Icon1 className="!text-[2rem] " />
+                </span>
+              </Tooltip>
             ) : (
-              <span
-                className={`${styles} ${value.icons[1].colors.light} ${value.icons[1].colors.dark}`}
-                key={value.icons[0].key}
-                onClick={() => {
-                  value.icons[1].handler();
-                  setStatusObj((state) => ({
-                    ...state,
-                    [value.icons[0].key]: true,
-                  }));
-                }}
+              <Tooltip
+                key={value.icons[1].key}
+                content={value.icons[1].tooltip}
               >
-                <Icon2 className="!text-[2rem]" />
-              </span>
+                <span
+                  className={`${styles} ${value.icons[1].colors.light} ${value.icons[1].colors.dark}`}
+                  onClick={() => {
+                    value.icons[1].handler();
+                    setStatusObj((state) => ({
+                      ...state,
+                      [value.icons[0].key]: true,
+                    }));
+                  }}
+                >
+                  <Icon2 className="!text-[2rem]" />
+                </span>
+              </Tooltip>
             );
           }
 
           const Icon = value.icons[0].icon;
           const handler = value.icons[0].handler;
           return value.icons[0].type == "link" ? (
-            <Link to={`${value.icons[0].link}`}>
+            <Tooltip key={value.icons[0].key} content={value.icons[0].tooltip}>
+              <Link to={`${value.icons[0].link}`}>
+                <span
+                  className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
+                  key={value}
+                  onClick={handler}
+                >
+                  <Icon className="!text-[2rem]" />
+                </span>
+              </Link>
+            </Tooltip>
+          ) : (
+            <Tooltip key={value.icons[0].key} content={value.icons[0].tooltip}>
               <span
                 className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
                 key={value}
@@ -70,15 +91,7 @@ function TableActionsData({ actions }) {
               >
                 <Icon className="!text-[2rem]" />
               </span>
-            </Link>
-          ) : (
-            <span
-              className={`${styles} ${value.icons[0].colors.light} ${value.icons[0].colors.dark}`}
-              key={value}
-              onClick={handler}
-            >
-              <Icon className="!text-[2rem]" />
-            </span>
+            </Tooltip>
           );
         })}
       </span>

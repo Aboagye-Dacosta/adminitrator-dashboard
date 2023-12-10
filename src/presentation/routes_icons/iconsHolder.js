@@ -1,13 +1,15 @@
+import { BiWorld } from "react-icons/bi";
 import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
 import {
   FaCheck,
   FaEye,
   FaLock,
+  FaMoneyBill,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa6";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosColorPalette, IoIosLogOut } from "react-icons/io";
+import { FaAngleDown, FaPeopleGroup } from "react-icons/fa6";
+import { GiHamburgerMenu, GiNetworkBars } from "react-icons/gi";
+import { IoIosColorPalette, IoIosLogOut, IoIosSettings } from "react-icons/io";
 import {
   IoCloseOutline,
   IoPencil,
@@ -16,6 +18,7 @@ import {
 } from "react-icons/io5";
 import { LuClock, LuNetwork } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
+import { TbCurrencyDollar, TbPackages } from "react-icons/tb";
 import { TiCancel } from "react-icons/ti";
 
 export const tableIcons = {
@@ -36,13 +39,21 @@ export const tableIcons = {
   circle: IoRadioButtonOffSharp,
   angleDown: FaAngleDown,
   close: IoCloseOutline,
+  network: GiNetworkBars,
+  setting: IoIosSettings,
+  people: FaPeopleGroup,
+  money: FaMoneyBill,
+  category: LuNetwork,
+  package: TbPackages,
+  world: BiWorld,
+  dollar: TbCurrencyDollar,
 };
 
 export const active = {
   key: "active",
   icon: tableIcons.active,
   type: "button",
-
+  tooltip: "Activate",
   handler: () => {},
   colors: {
     light: "!bg-green-600",
@@ -53,7 +64,7 @@ export const disable = {
   key: "disable",
   icon: tableIcons.disable,
   type: "button",
-
+  tooltip: "Deactivate",
   handler: () => {},
   colors: {
     light: "!bg-red-700",
@@ -65,7 +76,7 @@ export const visible = {
   key: "visible",
   icon: tableIcons.visible,
   type: "button",
-
+  tooltip: "View",
   handler: () => {},
   colors: {
     light: "bg-primary",
@@ -77,6 +88,7 @@ export const edit = {
   key: "edit",
   icon: tableIcons.edit,
   type: "link",
+  tooltip: "Edit",
   link: "",
   colors: {
     light: "bg-primary",
@@ -88,7 +100,7 @@ export const deleteIcon = {
   key: "delete",
   icon: tableIcons.delete,
   type: "button",
-
+  tooltip: "Delete",
   handler: () => {},
   colors: {
     light: "bg-red-700",
@@ -100,7 +112,7 @@ export const manage = {
   key: "manage",
   icon: tableIcons.manage,
   type: "button",
-
+  tooltip: "Manage",
   handler: () => {},
   colors: {
     light: "bg-blue-600",
@@ -112,7 +124,7 @@ export const track = {
   key: "track",
   icon: tableIcons.track,
   type: "button",
-
+  tooltip: "Track",
   handler: () => {},
   colors: {
     light: "bg-yellow-700",

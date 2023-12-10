@@ -2,9 +2,9 @@ import { Alert } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import {
+  closeAlert,
   getAlertData,
   getAlertStatus,
-  toggleAlert,
   toggleSideTwo,
 } from "../../service/features/navigation_slice";
 
@@ -30,9 +30,9 @@ function Container({ children, sideBarVisible = false }) {
       <div className="w-full mt-5 mb-10">
         <Alert
           open={open}
-          onClose={() => dispatch(toggleAlert())}
+          onClose={() => dispatch(closeAlert())}
           icon={<Icon className={`${iconColor} text-[1.5rem]`} />}
-          className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem] w-11/12`}
+          className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem] w-full`}
         >
           {message}
         </Alert>

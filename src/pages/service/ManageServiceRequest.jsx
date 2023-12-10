@@ -9,7 +9,7 @@ import {
 
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { statusObj } from "../../service/features/customerSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 import {
   filters,
   getFilterValue,

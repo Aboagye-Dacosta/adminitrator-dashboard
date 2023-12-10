@@ -1,12 +1,45 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import TableActionsData from "./TableActionsData";
 
-function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
+const TableCheckBox = ({ id, setAction, getAction }) => {
+  const dispatch = useDispatch();
+  const isChecked = useSelector(getAction(id));
+
+  useEffect(() => {
+    dispatch(setAction({ id, isChecked: false }));
+  }, []);
+
+  return (
+    <input
+      type="checkbox"
+      onChange={(e) => {
+        console.log("clicked", isChecked);
+        dispatch(setAction({ id, isChecked: e.target.checked }));
+      }}
+      checked={isChecked ?? false}
+    />
+  );
+};
+
+function TableRow({
+  data,
+  setCheckedAction,
+  getCheckedAction,
+  tableActions,
+  checkAble,
+  keys,
+}) {
   return (
     <tr className="odd:bg-blue-gray-50/50">
       {checkAble && (
         <td className="p-4 border border-slate">
-          <input type="checkbox" onChange={handleSelected} />
+          <TableCheckBox
+            setAction={setCheckedAction}
+            getAction={getCheckedAction}
+            id={data._id}
+          />
         </td>
       )}
       {keys.map((value) => {
@@ -61,9 +94,9 @@ function TableRow({ data, handleSelected, tableActions, checkAble, keys }) {
             }
             return actionObj;
           });
-         
+
           return {
-            icons:obj
+            icons: obj,
           };
         })}
       />

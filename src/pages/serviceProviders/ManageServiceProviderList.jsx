@@ -13,19 +13,23 @@ import {
   serviceProviderTableAction,
   serviceProviderTableHeaders,
 } from "../../presentation/serviceProviders/serviceProviderTableModel";
-import { statusObj } from "../../service/features/customerSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 import {
+  checkAllServiceProviders,
   getAllSupplier,
+  getSelectedServiceProviders,
   readAllSuppliers,
   searchServiceProvider,
-} from "../../service/features/serviceProviderSlice";
+  setSelectedServiceProvider,
+  uncheckAllServiceProvides,
+} from "../../service/features/serviceProvider/serviceProviderSlice";
 
 // eslint-disable-next-line react/prop-types
 function ManageServiceProviderList({ title }) {
   const dispatch = useDispatch();
   const supplierList = useSelector(getAllSupplier);
   const status = useSelector((state) => state.serviceProvider.status);
-
+  const message = useSelector((state) => state.serviceProvider.errorMessage);
   useEffect(() => {
     if (status === statusObj.idle) {
       dispatch(readAllSuppliers());
@@ -58,12 +62,18 @@ function ManageServiceProviderList({ title }) {
 
         <Table
           title="Service Provider List"
-          checkAble={false}
           data={supplierList}
           columnHeaders={serviceProviderTableHeaders}
           handleChecked={() => {}}
           status={status}
           tableActions={serviceProviderTableAction}
+          errorMessage={message}
+          setCheckedAction={setSelectedServiceProvider}
+          getCheckedAction={getSelectedServiceProviders}
+          checkAll={() => dispatch(checkAllServiceProviders())}
+          uncheckAll={() =>
+            dispatch(uncheckAllServiceProvides())
+          }
         />
       </Container>
     </PageLayout>
@@ -71,3 +81,5 @@ function ManageServiceProviderList({ title }) {
 }
 
 export default ManageServiceProviderList;
+//AN OUBJECT
+//

@@ -10,7 +10,7 @@ function TableFooterActionSection({
   const styles =
     "bg-primary w-full md:w-max hover:bg-green-700 text-[1.5rem] text-white p-3 rounded";
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center md:justify-start mt-10">
+    <div className="flex  flex-row items-center justify-start mt-10">
       <button className={styles} onClick={handleSelectAll}>
         Select All
       </button>

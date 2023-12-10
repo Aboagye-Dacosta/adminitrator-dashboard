@@ -28,14 +28,22 @@ const navigationSlice = createSlice({
     setAlertData: (state, action) => {
       state.alertData = action.payload;
     },
-    toggleAlert: (state) => {
-      state.isAlertOpen = !state.isAlertOpen;
+    openAlert: (state) => {
+      state.isAlertOpen = true;
+    },
+    closeAlert: (state) => {
+      state.isAlertOpen = false;
     },
   },
 });
 
-export const { setNavigationState, toggleSideTwo, toggleAlert, setAlertData } =
-  navigationSlice.actions;
+export const {
+  setNavigationState,
+  toggleSideTwo,
+  openAlert,
+  closeAlert,
+  setAlertData,
+} = navigationSlice.actions;
 export const selectNavState = (state) => state.navigationController.open;
 export const selectSideTwo = (state) => state.navigationController.sideTwo;
 export const getAlertData = (state) => state.navigationController.alertData;

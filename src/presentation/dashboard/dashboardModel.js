@@ -1,10 +1,12 @@
 import routes from "../routes_icons/routes";
+import store from "../../service/store";
 
 export default {
   customer: {
     title: "Customers",
     link: routes["Manage-Customers"]["links"]["Customer-list"]["url"],
     icon: routes["Manage-Customers"]["icon"],
+    status: () => store.subscribe(()=>{}),
     colors: {
       link: "bg-orange-900",
       icon: "text-orange-900",

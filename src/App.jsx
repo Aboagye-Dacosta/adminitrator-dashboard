@@ -24,6 +24,8 @@ import ManageServiceProviderList from "./pages/serviceProviders/ManageServicePro
 import UpdateServiceProvider from "./pages/serviceProviders/UpdateServiceProvider";
 import routes from "./presentation/routes_icons/routes";
 import { getLoggedInState, userRolesObj } from "./service/features/authSlice";
+import ManageMemberShipPlan from "./pages/membership/ManageMemberShipPlan";
+import ManageCountry from "./pages/country/ManageCountry";
 
 function App() {
   const isLoggedIn = useSelector(getLoggedInState);
@@ -261,6 +263,24 @@ function App() {
                   }
                   element={
                     <ManagePayments title={routes["Manage-Payment"]["title"]} />
+                  }
+                />
+                <Route
+                  exact
+                  path={
+                    routes["Membership-Plan"]["links"]["Membership-plan-list"]["url"]
+                  }
+                  element={
+                    <ManageMemberShipPlan title={routes["Membership-Plan"]["title"]} />
+                  }
+                />
+                <Route
+                  exact
+                  path={
+                    routes["Membership-Plan"]["links"]["Membership-plan-list"]["url"]
+                  }
+                  element={
+                    <ManageCountry title={routes["Membership-Plan"]["title"]} />
                   }
                 />
               </Routes>

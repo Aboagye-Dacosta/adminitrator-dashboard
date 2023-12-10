@@ -10,14 +10,44 @@ function FormImageInput({
   helperText,
 }) {
   const [image, setImage] = useState("");
+  const [error, setError] = useState({
+    hasError: false,
+    errorMessage: "",
+  });
 
   const handleImageChange = (e) => {
-    handleChange(e);
+    const file = e.target.files[0];
+    const allowedExtensions = ["jpg", "jpeg", "png"];
+    const maxSizeInBytes = 1024 * 1024 * 2;
 
-    const selectedImage = e.target.files[0];
-
-    console.log(selectedImage);
-    setImage(URL.createObjectURL(selectedImage));
+    if (file) {
+      const extension = file.name.split(".").pop().toLowerCase();
+      if (!allowedExtensions.includes(extension)) {
+        e.target.value = null;
+        setError({
+          errorMessage: "Only JPG, JPEG, or PNG files are allowed.",
+          hasError: true,
+        });
+        setImage("");
+      } else {
+        if (file && file.size > maxSizeInBytes) {
+          setError({
+            errorMessage:
+              "File size exceeds the limit. Please select a smaller file.",
+            hasError: true,
+          });
+          e.target.value = null;
+          setImage("");
+        } else {
+          setImage(URL.createObjectURL(file));
+          setError({
+            hasError: false,
+            errorMessage: "",
+          });
+          handleChange(e);
+        }
+      }
+    }
   };
 
   return (
@@ -61,6 +91,9 @@ function FormImageInput({
             />
           ) : (
             ""
+          )}
+          {error.hasError && (
+            <p className="text-[1.2rem] text-red-400">{error.errorMessage}</p>
           )}
         </div>
       </div>
