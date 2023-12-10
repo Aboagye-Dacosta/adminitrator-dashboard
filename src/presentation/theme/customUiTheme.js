@@ -1,4 +1,4 @@
-export const uiTheme =  {
+export const uiTheme = {
   list: {
     defaultProps: {
       ripple: true,
@@ -22,10 +22,28 @@ export const uiTheme =  {
             bg: "bg-orange-700",
             color: "text-blue-gray-700",
           },
-          
         },
-       
       },
     },
+  },
+  dialog: {
+    styles: {
+      base: {
+        backdrop: {
+          display: "grid",
+          placeItems: "place-items-center",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "w-screen",
+          height: "h-screen",
+          backgroundColor: "bg-black",
+          backgroundOpacity: "bg-opacity-0",
+          backdropFilter: "backdrop-blur-0",
+        },
+      
+     
+      }
+    }
   },
 };

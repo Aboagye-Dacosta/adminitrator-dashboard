@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import dashboardModel from "../../presentation/dashboard/dashboardModel";
 import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import withAuth from "../auth/WithAuth";
+import { DialogDefault } from "../general/DialogDefault";
 
 const PageLayout = withAuth(({ children, header, id, other }) => {
   let Icon = "";
   if (id) Icon = dashboardModel[id].icon;
   return (
     <div className="flex-1 mx-4 flex lg:w-[50rem] flex-col min-h-screen  my-7 !bg-transparent border-none shadow-none relative">
+      <DialogDefault/>
       <div className="text-[2rem] !shadow-none  !bg-transparent font-bold text-gray-700 py-5  px-5 flex lg:flex-row flex-col justify-between items-center">
         {header}
         <Breadcrumbs separator={">"} className="text-[1.2rem] mt-5 lg:mt-0">

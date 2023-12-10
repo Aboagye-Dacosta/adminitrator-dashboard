@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
 import { errorAlertObj } from "../presentation/routes_icons/alertModel";
 import { statusObj } from "../service/features/customer/customerSlice";
-import { openAlert, setAlertData } from "../service/features/navigation_slice";
+import {
+  dialogContentTye,
+  openAlert,
+  setAlertData,
+} from "../service/features/navigation_slice";
 import TableFooterActionSection from "./TableFooterActionSection";
 import TableRow from "./TableRow";
 /* eslint-disable react/prop-types */
@@ -21,6 +25,8 @@ function Table({
   getCheckedAction,
   checkAll,
   uncheckAll,
+  dialogTitle,
+  dialogType = dialogContentTye.table,
 }) {
   const dispatch = useDispatch();
   const statusState = status;
@@ -96,31 +102,33 @@ function Table({
                   <TableRow
                     data={value}
                     key={i}
-                    keys={columnHeaders
-                      .filter((value) => value.id != "")
-                      .map((value) => value.id)}
+                    tableHeaders={columnHeaders}
                     tableActions={tableActions}
                     checkAble={checkAble}
                     setCheckedAction={setCheckedAction}
                     getCheckedAction={getCheckedAction}
                     handleSuperCheck={handleChecked}
+                    dialogContentType={dialogType}
+                    dialogTitle={dialogTitle}
                   />
                 );
               }))
           }
         </tbody>
       </table>
-    { checkAble && <TableFooterActionSection
-        handleSelectAll={() => {
-          dispatch(handleChecked(true));
-          checkAll();
-        }}
-        handleUnselectAll={() => {
-          dispatch(handleChecked(false));
-          uncheckAll();
-        }}
-        selectionObject={["one", "two"]}
-      />}
+      {checkAble && (
+        <TableFooterActionSection
+          handleSelectAll={() => {
+            dispatch(handleChecked(true));
+            checkAll();
+          }}
+          handleUnselectAll={() => {
+            dispatch(handleChecked(false));
+            uncheckAll();
+          }}
+          selectionObject={["one", "two"]}
+        />
+      )}
     </div>
   );
 }

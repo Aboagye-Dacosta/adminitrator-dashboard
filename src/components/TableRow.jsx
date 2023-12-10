@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  setDialogTitle,
+  setModalContent,
+  toggleDialog,
+} from "../service/features/navigation_slice";
 import TableActionsData from "./TableActionsData";
 
 const TableCheckBox = ({
@@ -41,8 +46,11 @@ function TableRow({
   tableActions,
   checkAble,
   handleSuperCheck,
-  keys,
+  dialogContentType,
+  tableHeaders,
+  dialogTitle,
 }) {
+  const dispatch = useDispatch();
   return (
     <tr className="odd:bg-blue-gray-50/50">
       {checkAble && (
@@ -56,45 +64,50 @@ function TableRow({
           />
         </td>
       )}
-      {keys.map((value) => {
-        if (value.toLowerCase().indexOf("profile") != -1) {
-          return (
-            <td
-              key={value}
-              className="p-2 text-[1.3rem] text-black border border-slate"
-            >
-              <img src={data[value]} alt="" className="w-20 h-20" />
-            </td>
-          );
-        } else if (value == "status") {
-          return (
-            <td
-              key={value}
-              className="p-2 text-[1.3rem] border border-slate text-white"
-            >
-              <span className="bg-blue-700 px-2 py-2 block">{data[value]}</span>
-            </td>
-          );
-        } else if (value == "Availability") {
-          return (
-            <td
-              key={value}
-              className="p-2 text-[1.3rem] text-black border border-slate"
-            >
-              <a href={data[value]} alt="" className="w-20 h-20" />
-            </td>
-          );
-        } else {
-          return (
-            <td
-              key={value}
-              className="p-2 text-[1.3rem] text-black border border-slate"
-            >
-              {data[value]}
-            </td>
-          );
-        }
-      })}
+      {tableHeaders
+        .filter((value) => value.id != "")
+        .map((value) => value.id)
+        .map((value) => {
+          if (value.toLowerCase().indexOf("profile") != -1) {
+            return (
+              <td
+                key={value}
+                className="p-2 text-[1.3rem] text-black border border-slate"
+              >
+                <img src={data[value]} alt="" className="w-20 h-20" />
+              </td>
+            );
+          } else if (value == "status") {
+            return (
+              <td
+                key={value}
+                className="p-2 text-[1.3rem] border border-slate text-white"
+              >
+                <span className="bg-blue-700 px-2 py-2 block">
+                  {data[value]}
+                </span>
+              </td>
+            );
+          } else if (value == "Availability") {
+            return (
+              <td
+                key={value}
+                className="p-2 text-[1.3rem] text-black border border-slate"
+              >
+                <a href={data[value]} alt="" className="w-20 h-20" />
+              </td>
+            );
+          } else {
+            return (
+              <td
+                key={value}
+                className="p-2 text-[1.3rem] text-black border border-slate"
+              >
+                {data[value]}
+              </td>
+            );
+          }
+        })}
       <TableActionsData
         actions={tableActions.map((action) => {
           const obj = action.icons.map((actionObj) => {
@@ -105,6 +118,23 @@ function TableRow({
                 link,
               };
               return actionObj;
+            }
+
+            if (actionObj.key == "visible" && actionObj.type == "button") {
+              actionObj = {
+                ...actionObj,
+                handler: () =>
+                {
+                  dispatch(setDialogTitle(dialogTitle))
+                  dispatch(
+                    setModalContent({
+                      data: { tableHeaders, content: data },
+                      type: dialogContentType,
+                    })
+                  );
+                  dispatch(toggleDialog());
+                },
+              };
             }
             return actionObj;
           });

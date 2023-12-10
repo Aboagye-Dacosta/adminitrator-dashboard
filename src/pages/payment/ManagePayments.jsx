@@ -65,6 +65,7 @@ function ManagePayments({ title }) {
           columnHeaders={managePaymentListHeaders}
           handleChecked={() => {}}
           status={status}
+          dialogTitle="Payment Details"
           tableActions={paymentActions}
         />
       </Container>
