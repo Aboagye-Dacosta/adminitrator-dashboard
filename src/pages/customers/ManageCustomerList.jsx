@@ -26,6 +26,7 @@ import {
   statusObj,
   uncheckAllCustomers,
 } from "../../service/features/customer/customerSlice";
+import { dialogContentTye } from "../../service/features/navigation_slice";
 
 // eslint-disable-next-line react/prop-types
 function ManageCustomerList({ title }) {
@@ -86,6 +87,8 @@ function ManageCustomerList({ title }) {
           getCheckedAction={getSelectedCustomers}
           checkAll={() => dispatch(checkAllCustomers())}
           uncheckAll={() => dispatch(uncheckAllCustomers())}
+          dialogType={dialogContentTye.profile}
+          dialogTitle="Customer Profile Detail"
         />
       </Container>
     </PageLayout>

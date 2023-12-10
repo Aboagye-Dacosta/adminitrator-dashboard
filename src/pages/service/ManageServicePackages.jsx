@@ -45,6 +45,7 @@ function ManageServicePackages({ title }) {
           handleChecked={() => {}}
           title="Service Packages List"
           tableActions={servicePackageTableAction}
+          dialogTitle="Service Package Detail"
         />
       </Container>
     </PageLayout>

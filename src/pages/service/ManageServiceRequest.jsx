@@ -65,6 +65,7 @@ function ManageServiceRequest({ title }) {
           title="Service Requests List"
           status={status}
           tableActions={serviceRequestTableActions}
+          dialogTitle="Service Request Detail"
         />
       </Container>
     </PageLayout>
