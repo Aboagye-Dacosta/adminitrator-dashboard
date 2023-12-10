@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-function TableFooterActionSection({
+const  TableFooterActionSection = ({
   handleSelectAll,
   handleUnselectAll,
   selectionObject,
-}) {
+})=> {
   const [selectedOption, setSelectedOption] = useState(-1);
   const styles =
     "bg-primary w-full md:w-max hover:bg-green-700 text-[1.5rem] text-white p-3 rounded";
@@ -50,4 +50,4 @@ function TableFooterActionSection({
   );
 }
 
-export default TableFooterActionSection;
+export default  TableFooterActionSection;

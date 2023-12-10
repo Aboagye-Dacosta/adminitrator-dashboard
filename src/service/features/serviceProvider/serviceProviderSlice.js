@@ -6,6 +6,7 @@ const name = "supplier";
 const initialState = {
   status: statusObj.idle,
   errorMessage: "",
+  superChecked: false,
   selectedServiceProviders: {},
   serviceProviders: [],
 };
@@ -43,18 +44,19 @@ const serviceProviderSlice = createSlice({
         }
       }
       state.selectedServiceProviders = selectedServiceProviders;
-      
     },
-    uncheckAllServiceProvides: (state) =>
-    {
-        const selectedServiceProviders = state.selectedServiceProviders;
-        for (const key in selectedServiceProviders) {
-          if (Object.hasOwnProperty.call(selectedServiceProviders, key)) {
-            selectedServiceProviders[key] = false;
-          }
+    uncheckAllServiceProvides: (state) => {
+      const selectedServiceProviders = state.selectedServiceProviders;
+      for (const key in selectedServiceProviders) {
+        if (Object.hasOwnProperty.call(selectedServiceProviders, key)) {
+          selectedServiceProviders[key] = false;
         }
-        state.selectedServiceProviders = selectedServiceProviders;
-    }
+      }
+      state.selectedServiceProviders = selectedServiceProviders;
+    },
+    setSuperCheck: (state, action) => {
+      state.superChecked = action.payload;
+    },
   },
   extraReducers: (build) => {
     build
@@ -83,9 +85,11 @@ export const {
   setSelectedServiceProvider,
   checkAllServiceProviders,
   uncheckAllServiceProvides,
+  setSuperCheck,
 } = serviceProviderSlice.actions;
 
 export const getAllSupplier = (state) => state.serviceProvider.serviceProviders;
+export const getSuperCheckedState = (state) => state.serviceProvider.superChecked;
 export const getSelectedServiceProviders = (id) => (state) =>
   state.serviceProvider.selectedServiceProviders[id];
 export const selectServiceProviderById = (id) => (state) =>

@@ -18,9 +18,11 @@ import {
   checkAllServiceProviders,
   getAllSupplier,
   getSelectedServiceProviders,
+  getSuperCheckedState,
   readAllSuppliers,
   searchServiceProvider,
   setSelectedServiceProvider,
+  setSuperCheck,
   uncheckAllServiceProvides,
 } from "../../service/features/serviceProvider/serviceProviderSlice";
 
@@ -30,6 +32,7 @@ function ManageServiceProviderList({ title }) {
   const supplierList = useSelector(getAllSupplier);
   const status = useSelector((state) => state.serviceProvider.status);
   const message = useSelector((state) => state.serviceProvider.errorMessage);
+  const checkState = useSelector(getSuperCheckedState)
   useEffect(() => {
     if (status === statusObj.idle) {
       dispatch(readAllSuppliers());
@@ -64,16 +67,15 @@ function ManageServiceProviderList({ title }) {
           title="Service Provider List"
           data={supplierList}
           columnHeaders={serviceProviderTableHeaders}
-          handleChecked={() => {}}
+          checkedState={checkState}
+          handleChecked={setSuperCheck}
           status={status}
           tableActions={serviceProviderTableAction}
           errorMessage={message}
           setCheckedAction={setSelectedServiceProvider}
           getCheckedAction={getSelectedServiceProviders}
           checkAll={() => dispatch(checkAllServiceProviders())}
-          uncheckAll={() =>
-            dispatch(uncheckAllServiceProvides())
-          }
+          uncheckAll={() => dispatch(uncheckAllServiceProvides())}
         />
       </Container>
     </PageLayout>

@@ -12,6 +12,7 @@ function Table({
   columnHeaders,
   data,
   handleChecked,
+  checkedState,
   tableActions,
   status,
   checkAble = true,
@@ -56,8 +57,10 @@ function Table({
               <th className="border border-slate p-4">
                 <input
                   type="checkbox"
+                  checked={checkedState}
                   onChange={(e) => {
-                    if (e.target.checked == true) checkAble();
+                    dispatch(handleChecked(e.target.checked));
+                    if (e.target.checked == true) checkAll();
                     if (e.target.checked == false) uncheckAll();
                   }}
                 />
@@ -100,6 +103,7 @@ function Table({
                     checkAble={checkAble}
                     setCheckedAction={setCheckedAction}
                     getCheckedAction={getCheckedAction}
+                    handleSuperCheck={handleChecked}
                   />
                 );
               }))
@@ -107,8 +111,14 @@ function Table({
         </tbody>
       </table>
       <TableFooterActionSection
-        handleSelectAll={checkAll}
-        handleUnselectAll={uncheckAll}
+        handleSelectAll={() => {
+          dispatch(handleChecked(true));
+          checkAll();
+        }}
+        handleUnselectAll={() => {
+          dispatch(handleChecked(false));
+          uncheckAll();
+        }}
         selectionObject={["one", "two"]}
       />
     </div>
