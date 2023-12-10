@@ -15,10 +15,16 @@ import {
 } from "../../presentation/customers/customerListTableModel";
 import routes from "../../presentation/routes_icons/routes";
 import {
+  checkAllCustomers,
   getAllCustomers,
+  getSelectedCustomers,
+  getSuperCheckedState,
   readAllCustomers,
   searchUser,
+  setSelectedCustomer,
+  setSuperCheck,
   statusObj,
+  uncheckAllCustomers,
 } from "../../service/features/customer/customerSlice";
 
 // eslint-disable-next-line react/prop-types
@@ -27,6 +33,7 @@ function ManageCustomerList({ title }) {
   const customerList = useSelector(getAllCustomers);
   const status = useSelector((state) => state.customer.status);
   const errorMessage = useSelector((state) => state.customer.errorMessage);
+  const checkState = useSelector(getSuperCheckedState);
 
   useEffect(() => {
     if (status === statusObj.idle) {
@@ -54,7 +61,7 @@ function ManageCustomerList({ title }) {
           </Link>
         </div>
 
-        <Table
+        {/* <Table
           checkAble={true}
           title="Customer List"
           status={status}
@@ -63,6 +70,22 @@ function ManageCustomerList({ title }) {
           columnHeaders={customerListTableHeaders}
           handleChecked={() => {}}
           tableActions={customerListTableAction}
+        /> */}
+
+        <Table
+          title="Customer List"
+          data={customerList}
+          columnHeaders={customerListTableHeaders}
+          checkedState={checkState}
+          handleChecked={setSuperCheck}
+          status={status}
+          checkAble={true}
+          tableActions={customerListTableAction}
+          errorMessage={errorMessage}
+          setCheckedAction={setSelectedCustomer}
+          getCheckedAction={getSelectedCustomers}
+          checkAll={() => dispatch(checkAllCustomers())}
+          uncheckAll={() => dispatch(uncheckAllCustomers())}
         />
       </Container>
     </PageLayout>

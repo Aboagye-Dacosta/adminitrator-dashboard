@@ -61,6 +61,7 @@ function ManagePayments({ title }) {
         <Table
           title="Payment List"
           data={paymentList}
+          checkAll={false}
           columnHeaders={managePaymentListHeaders}
           handleChecked={() => {}}
           status={status}

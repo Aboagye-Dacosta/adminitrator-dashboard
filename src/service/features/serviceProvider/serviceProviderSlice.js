@@ -93,6 +93,8 @@ export const getSuperCheckedState = (state) => state.serviceProvider.superChecke
 export const getSelectedServiceProviders = (id) => (state) =>
   state.serviceProvider.selectedServiceProviders[id];
 export const selectServiceProviderById = (id) => (state) =>
-  state.serviceProvider.suppliers.filter((provider) => provider._id == id);
+  state.serviceProvider.serviceProviders.filter(
+    (provider) => provider._id == id
+  );
 
 export default serviceProviderSlice.reducer;

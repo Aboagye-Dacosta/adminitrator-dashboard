@@ -15,7 +15,7 @@ function Table({
   checkedState,
   tableActions,
   status,
-  checkAble = true,
+  checkAble,
   errorMessage = "",
   setCheckedAction,
   getCheckedAction,
@@ -110,7 +110,7 @@ function Table({
           }
         </tbody>
       </table>
-      <TableFooterActionSection
+    { checkAble && <TableFooterActionSection
         handleSelectAll={() => {
           dispatch(handleChecked(true));
           checkAll();
@@ -120,7 +120,7 @@ function Table({
           uncheckAll();
         }}
         selectionObject={["one", "two"]}
-      />
+      />}
     </div>
   );
 }

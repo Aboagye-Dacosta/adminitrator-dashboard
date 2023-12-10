@@ -3,13 +3,19 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TableActionsData from "./TableActionsData";
 
-const TableCheckBox = ({ id, setAction, getAction,handleSuperCheck }) => {
+const TableCheckBox = ({
+  id,
+  setAction,
+  getAction,
+  handleSuperCheck,
+  checkAble,
+}) => {
   const dispatch = useDispatch();
   const isChecked = useSelector(getAction(id));
 
   useEffect(() => {
-    dispatch(setAction({ id, isChecked: false }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (checkAble) dispatch(setAction({ id, isChecked: false }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -19,9 +25,8 @@ const TableCheckBox = ({ id, setAction, getAction,handleSuperCheck }) => {
         console.log("clicked", isChecked);
         dispatch(setAction({ id, isChecked: e.target.checked }));
 
-        if (!e.target.checked)
-        {
-          dispatch(handleSuperCheck(false))
+        if (!e.target.checked) {
+          dispatch(handleSuperCheck(false));
         }
       }}
       checked={isChecked ?? false}
@@ -47,6 +52,7 @@ function TableRow({
             getAction={getCheckedAction}
             handleSuperCheck={handleSuperCheck}
             id={data._id}
+            checkAble={checkAble}
           />
         </td>
       )}

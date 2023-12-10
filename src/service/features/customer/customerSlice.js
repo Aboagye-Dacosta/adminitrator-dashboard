@@ -13,6 +13,8 @@ const initialState = {
   status: statusObj.idle,
   errorMessage: "",
   customers: [],
+  superChecked: false,
+  selectedCustomers: {},
 };
 
 export const readAllCustomers = createAsyncThunk(
@@ -38,6 +40,33 @@ const customerSlice = createSlice({
     resetCustomerStatus: (state) => {
       state.status = statusObj.idle;
     },
+    setSelectedCustomer: (state, action) => {
+      state.selectedCustomers = {
+        ...state.selectedCustomers,
+        [action.payload.id]: action.payload.isChecked,
+      };
+    },
+    checkAllCustomers: (state) => {
+      const selectedCustomers = state.selectedCustomers;
+      for (const key in selectedCustomers) {
+        if (Object.hasOwnProperty.call(selectedCustomers, key)) {
+          selectedCustomers[key] = true;
+        }
+      }
+      state.selectedCustomers = selectedCustomers;
+    },
+    uncheckAllCustomers: (state) => {
+      const selectedCustomers = state.selectedCustomers;
+      for (const key in selectedCustomers) {
+        if (Object.hasOwnProperty.call(selectedCustomers, key)) {
+          selectedCustomers[key] = false;
+        }
+      }
+      state.selectedCustomers = selectedCustomers;
+    },
+    setSuperCheck: (state, action) => {
+      state.superChecked = action.payload;
+    },
   },
   extraReducers(builder) {
     builder
@@ -60,8 +89,11 @@ const customerSlice = createSlice({
   },
 });
 
-export const { searchUser, resetCustomerStatus } = customerSlice.actions;
-
+export const { searchUser, resetCustomerStatus,checkAllCustomers,uncheckAllCustomers,setSuperCheck,setSelectedCustomer } = customerSlice.actions;
+export const getSuperCheckedState = (state) =>
+  state.customer.superChecked;
+export const getSelectedCustomers = (id) => (state) =>
+  state.customer.selectedCustomers[id];
 export const getAllCustomers = (state) => state.customer.customers;
 export const selectCustomerById = (id) => (state) =>
   state.customer.customers.filter((customer) => customer._id === id);

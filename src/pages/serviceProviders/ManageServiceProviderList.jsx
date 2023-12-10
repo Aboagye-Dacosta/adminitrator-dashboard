@@ -70,6 +70,7 @@ function ManageServiceProviderList({ title }) {
           checkedState={checkState}
           handleChecked={setSuperCheck}
           status={status}
+          checkAble={true}
           tableActions={serviceProviderTableAction}
           errorMessage={message}
           setCheckedAction={setSelectedServiceProvider}
