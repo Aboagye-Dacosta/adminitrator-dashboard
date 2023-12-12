@@ -51,6 +51,7 @@ function ManageCustomerList({ title }) {
             searchBy="Search by Username or Email Address"
             handleSubmit={(value) => dispatch(searchUser(value))}
             handleClear={() => dispatch(readAllCustomers())}
+            searchValue={searchUser}
           />
 
           <Link
@@ -62,33 +63,42 @@ function ManageCustomerList({ title }) {
           </Link>
         </div>
 
-        {/* <Table
-          checkAble={true}
-          title="Customer List"
-          status={status}
-          errorMessage={errorMessage}
-          data={customerList}
-          columnHeaders={customerListTableHeaders}
-          handleChecked={() => {}}
-          tableActions={customerListTableAction}
-        /> */}
-
         <Table
           title="Customer List"
           data={customerList}
           columnHeaders={customerListTableHeaders}
+          checkAble={true}
           checkedState={checkState}
           handleChecked={setSuperCheck}
           status={status}
-          checkAble={true}
-          tableActions={customerListTableAction}
           errorMessage={errorMessage}
+          tableActions={customerListTableAction}
           setCheckedAction={setSelectedCustomer}
           getCheckedAction={getSelectedCustomers}
           checkAll={() => dispatch(checkAllCustomers())}
           uncheckAll={() => dispatch(uncheckAllCustomers())}
           dialogType={dialogContentTye.profile}
           dialogTitle="Customer Profile Detail"
+          selectedActionOptions={[
+            {
+              title: "Activate",
+              handler: () => {
+                console.log("activate");
+              },
+            },
+            {
+              title: "Deactivate",
+              handler: () => {
+                console.log("deactivate");
+              },
+            },
+            {
+              title: "Delete",
+              handler: () => {
+                console.log("delete");
+              },
+            },
+          ]}
         />
       </Container>
     </PageLayout>

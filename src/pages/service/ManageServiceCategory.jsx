@@ -24,6 +24,7 @@ function ManageServiceCategory({ title }) {
           columnHeaders={serviceCategoryTableHeaders}
           handleChecked={() => {}}
           tableActions={serviceCategoryTableActions}
+          selectedActionOptions={[]}
         />
       </Container>
     </PageLayout>

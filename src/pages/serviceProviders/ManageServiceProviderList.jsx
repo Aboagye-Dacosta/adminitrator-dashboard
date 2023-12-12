@@ -17,10 +17,10 @@ import { statusObj } from "../../service/features/customer/customerSlice";
 import { dialogContentTye } from "../../service/features/navigation_slice";
 import {
   checkAllServiceProviders,
-  getAllSupplier,
+  getAllServiceProviders,
   getSelectedServiceProviders,
   getSuperCheckedState,
-  readAllSuppliers,
+  readAllServiceProviders,
   searchServiceProvider,
   setSelectedServiceProvider,
   setSuperCheck,
@@ -30,13 +30,13 @@ import {
 // eslint-disable-next-line react/prop-types
 function ManageServiceProviderList({ title }) {
   const dispatch = useDispatch();
-  const supplierList = useSelector(getAllSupplier);
+  const supplierList = useSelector(getAllServiceProviders);
   const status = useSelector((state) => state.serviceProvider.status);
   const message = useSelector((state) => state.serviceProvider.errorMessage);
   const checkState = useSelector(getSuperCheckedState);
   useEffect(() => {
     if (status === statusObj.idle) {
-      dispatch(readAllSuppliers());
+      dispatch(readAllServiceProviders());
     }
   }, [dispatch, status]);
 
@@ -49,7 +49,8 @@ function ManageServiceProviderList({ title }) {
             searchBy="Search by Username or Email Address"
             handleChange={() => {}}
             handleSubmit={(value) => dispatch(searchServiceProvider(value))}
-            handleClear={() => dispatch(readAllSuppliers())}
+            handleClear={() => dispatch(readAllServiceProviders())}
+            searchValue={searchServiceProvider}
           />
           <Link
             to={
@@ -80,6 +81,26 @@ function ManageServiceProviderList({ title }) {
           uncheckAll={() => dispatch(uncheckAllServiceProvides())}
           dialogTitle="Service Provider Detail"
           dialogType={dialogContentTye.profile}
+          selectedActionOptions={[
+            {
+              title: "Activate",
+              handler: () => {
+                console.log("activate");
+              },
+            },
+            {
+              title: "Deactivate",
+              handler: () => {
+                console.log("deactivate");
+              },
+            },
+            {
+              title: "Delete",
+              handler: () => {
+                console.log("delete");
+              },
+            },
+          ]}
         />
       </Container>
     </PageLayout>

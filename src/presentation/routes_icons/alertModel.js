@@ -1,14 +1,14 @@
-import { tableIcons } from "./iconsHolder";
+import { alertTypeObj } from "../../service/features/navigation_slice";
 
 export const successAlertObj = {
-  icon: tableIcons.active,
+  alertType: alertTypeObj.success,
   message: "",
   bgColor: "bg-green-700",
   iconColor: "text-green-900",
 };
 
 export const errorAlertObj = {
-  icon: tableIcons.disable,
+  alertType: alertTypeObj.error,
   message: "",
   bgColor: "bg-red-700",
   iconColor: "text-red-900",

@@ -43,6 +43,7 @@ function ManageMemberShipPlan({ title }) {
             searchBy="Search by Username or Email Address"
             handleSubmit={(value) => dispatch(searchUser(value))}
             handleClear={() => dispatch(readAllCustomers())}
+            searchValue={searchUser}
           />
 
           <Link
@@ -62,6 +63,7 @@ function ManageMemberShipPlan({ title }) {
           columnHeaders={customerListTableHeaders}
           handleChecked={() => {}}
           tableActions={customerListTableAction}
+          selectedActionOptions={[]}
         />
       </Container>
     </PageLayout>

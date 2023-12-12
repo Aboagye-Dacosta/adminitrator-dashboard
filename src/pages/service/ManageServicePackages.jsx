@@ -38,6 +38,7 @@ function ManageServicePackages({ title }) {
           handleClear={() => dispatch(readAllServices())}
           placeholder={""}
           searchBy="Search by Name, Category or SubCategory"
+          searchValue={searchServices}
         />
         <Table
           columnHeaders={servicePackageTableHeaders}
@@ -48,6 +49,7 @@ function ManageServicePackages({ title }) {
           tableActions={servicePackageTableAction}
           dialogTitle="Service Package Detail"
           dialogType={dialogContentTye.profile}
+          selectedActionOptions={[]}
         />
       </Container>
     </PageLayout>

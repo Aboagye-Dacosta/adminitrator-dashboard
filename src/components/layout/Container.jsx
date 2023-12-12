@@ -2,6 +2,7 @@ import { Alert } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
 import {
+  alertTypeObj,
   closeAlert,
   getAlertData,
   getAlertStatus,
@@ -11,9 +12,8 @@ import {
 // eslint-disable-next-line react/prop-types
 function Container({ children, sideBarVisible = false }) {
   const dispatch = useDispatch();
-  const { icon, bgColor, message, iconColor } = useSelector(getAlertData);
+  const { bgColor, message, iconColor, alertType } = useSelector(getAlertData);
   const open = useSelector(getAlertStatus);
-  const Icon = icon;
   return (
     <div className="relative bg-white flex-1 border-t-2 overflow-auto rounded-none border-primary px-5 py-10  min-h-[50vh]  ">
       {sideBarVisible && (
@@ -31,7 +31,13 @@ function Container({ children, sideBarVisible = false }) {
         <Alert
           open={open}
           onClose={() => dispatch(closeAlert())}
-          icon={<Icon className={`${iconColor} text-[1.5rem]`} />}
+          icon={
+            alertType == alertTypeObj.success ? (
+              <tableIcons.active className={`${iconColor} text-[1.5rem]`} />
+            ) : (
+              <tableIcons.disable className={`${iconColor} text-[1.5rem]`} />
+            )
+          }
           className={`py-4 px-3 rounded-none ${bgColor} text-[1.5rem] w-full`}
         >
           {message}

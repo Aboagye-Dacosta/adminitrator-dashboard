@@ -57,6 +57,7 @@ function ManageServiceRequest({ title }) {
           handleClear={() => dispatch(resetServiceRequestStatus())}
           placeholder={""}
           searchBy="Search by Request Number, Customer Name or Category"
+          searchValue={searchServiceRequests}
         />
         <Table
           columnHeaders={serviceRequestTableHeaders}
@@ -66,6 +67,7 @@ function ManageServiceRequest({ title }) {
           status={status}
           tableActions={serviceRequestTableActions}
           dialogTitle="Service Request Detail"
+          selectedActionOptions={[]}
         />
       </Container>
     </PageLayout>

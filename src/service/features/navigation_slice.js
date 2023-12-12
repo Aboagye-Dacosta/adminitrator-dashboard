@@ -4,6 +4,10 @@ export const dialogContentTye = Object.freeze({
   table: "table",
   profile: "Profile",
 });
+export const alertTypeObj = Object.freeze({
+  success: "success",
+  error: "error",
+});
 
 const name = "navigationSlice";
 const initialState = {
@@ -17,7 +21,7 @@ const initialState = {
     type: dialogContentTye.table,
   },
   alertData: {
-    icon: "",
+    alertType: alertTypeObj.success,
     message: "",
     bgColor: "",
     iconColor: "",
@@ -65,7 +69,7 @@ export const {
   setAlertData,
   toggleDialog,
   setModalContent,
-  setDialogTitle
+  setDialogTitle,
 } = navigationSlice.actions;
 export const selectNavState = (state) => state.navigationController.open;
 export const selectSideTwo = (state) => state.navigationController.sideTwo;

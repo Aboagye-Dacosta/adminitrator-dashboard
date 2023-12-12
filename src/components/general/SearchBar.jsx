@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function SearchBar({
   placeholder,
-  handleChange = () => {},
+  searchValue,
   handleSubmit,
   searchBy,
   handleClear = () => {},
 }) {
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
   const clearSearch = () => {
     setValue("");
@@ -24,7 +26,10 @@ function SearchBar({
             value={value}
             placeholder={placeholder}
             onChange={(e) => {
-              handleChange(e);
+              if (searchValue) {
+                console.log(value);
+                dispatch(searchValue(e.target.value));
+              }
               setValue(e.target.value);
             }}
             className="outline-none focus:outline-none w-full text-[1.2rem] text-black"

@@ -37,10 +37,10 @@ const createData = async (data, path, cancelToken) => {
         "Content-Type": "multipart/form-data", // Set content type to multipart form data
       },
     });
-
+    
+    console.log(data);
     if (response.data.code == 201) {
       const data = response.data;
-      console.log(data);
       return {
         data: data.data,
         error: false,

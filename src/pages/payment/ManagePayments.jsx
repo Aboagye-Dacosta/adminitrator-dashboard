@@ -56,6 +56,7 @@ function ManagePayments({ title }) {
           handleClear={() => dispatch(resetPaymentStatus())}
           placeholder={""}
           searchBy="Search by Request Number, Customer Fullname, Transaction ID"
+          searchValue={searchPayment}
         />
 
         <Table
@@ -67,6 +68,7 @@ function ManagePayments({ title }) {
           status={status}
           dialogTitle="Payment Details"
           tableActions={paymentActions}
+          selectedActionOptions={[]}
         />
       </Container>
     </PageLayout>

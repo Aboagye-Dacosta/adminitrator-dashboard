@@ -1,7 +1,8 @@
+import { Alert } from "@material-tailwind/react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
-import { errorAlertObj } from "../presentation/routes_icons/alertModel";
+import { errorAlertObj,successAlertObj } from "../presentation/routes_icons/alertModel";
 import { statusObj } from "../service/features/customer/customerSlice";
 import {
   dialogContentTye,
@@ -27,6 +28,7 @@ function Table({
   uncheckAll,
   dialogTitle,
   dialogType = dialogContentTye.table,
+  selectedActionOptions,
 }) {
   const dispatch = useDispatch();
   const statusState = status;
@@ -38,6 +40,15 @@ function Table({
       dispatch(
         setAlertData({
           ...errorAlertObj,
+          message: errorMessage,
+        })
+      );
+      dispatch(openAlert());
+    }
+    if (statusState == statusObj.fulfilled) {
+      dispatch(
+        setAlertData({
+          ...successAlertObj,
           message: errorMessage,
         })
       );
@@ -96,23 +107,32 @@ function Table({
         <tbody>
           {
             (status =
-              statusObj.fulfilled &&
-              data.map((value, i) => {
-                return (
-                  <TableRow
-                    data={value}
-                    key={i}
-                    tableHeaders={columnHeaders}
-                    tableActions={tableActions}
-                    checkAble={checkAble}
-                    setCheckedAction={setCheckedAction}
-                    getCheckedAction={getCheckedAction}
-                    handleSuperCheck={handleChecked}
-                    dialogContentType={dialogType}
-                    dialogTitle={dialogTitle}
-                  />
-                );
-              }))
+              statusObj.fulfilled && data.length > 0 ? (
+                data.map((value, i) => {
+                  return (
+                    <TableRow
+                      data={value}
+                      key={i}
+                      tableHeaders={columnHeaders}
+                      tableActions={tableActions}
+                      checkAble={checkAble}
+                      setCheckedAction={setCheckedAction}
+                      getCheckedAction={getCheckedAction}
+                      handleSuperCheck={handleChecked}
+                      dialogContentType={dialogType}
+                      dialogTitle={dialogTitle}
+                    />
+                  );
+                })
+              ) : (
+                <tr>
+                  <td colSpan={columnHeaders.length + 2}>
+                    <Alert className="bg-slate text-[1.5rem] py-3 w-full text-black rounded-none ">
+                      No data available
+                    </Alert>
+                  </td>
+                </tr>
+              ))
           }
         </tbody>
       </table>
@@ -126,7 +146,7 @@ function Table({
             dispatch(handleChecked(false));
             uncheckAll();
           }}
-          selectionObject={["one", "two"]}
+          selectionObject={selectedActionOptions}
         />
       )}
     </div>

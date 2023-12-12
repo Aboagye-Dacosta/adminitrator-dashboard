@@ -80,6 +80,7 @@ const customerSlice = createSlice({
         } else {
           state.customers = action.payload.data;
           state.status = statusObj.fulfilled;
+          state.errorMessage = action.payload.message
         }
       })
       .addCase(readAllCustomers.rejected, (state) => {
