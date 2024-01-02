@@ -283,6 +283,15 @@ function App() {
                     <ManageCountry title={routes["Membership-Plan"]["title"]} />
                   }
                 />
+                <Route
+                  exact
+                  path={
+                    routes["Manage-Countries"]["links"]["Country List"]["url"]
+                  }
+                  element={
+                    <ManageCountry title={routes["Manage-Countries"]["title"]} />
+                  }
+                />
               </Routes>
               <SideBarTwo />
             </div>

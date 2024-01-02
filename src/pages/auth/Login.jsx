@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import { tableIcons } from "../../presentation/routes_icons/iconsHolder";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import {
   getLoggedInState,
   setUserRole,
   validateUser,
+  getLoggedInStatus
 } from "../../service/features/authSlice";
+import { statusObj } from "../../service/features/customer/customerSlice";
 
 // eslint-disable-next-line react/prop-types
 const LoginDisplay = ({ userRole }) => {
@@ -16,6 +20,7 @@ const LoginDisplay = ({ userRole }) => {
   const ref = useRef();
   const dispatch = useDispatch();
   const siteKey = import.meta.env.VITE_RACAPTCHA_SITE_KEY;
+  const status = useSelector(getLoggedInStatus);
   //   const secrete = import.meta.env.VITE_RACAPTCHA_SECRETE_KEY;
 
   const handleSubmit = (e) => {
@@ -42,16 +47,15 @@ const LoginDisplay = ({ userRole }) => {
           </p>
           <form
             method="POST"
-            
             className="w-full mt-10 flex flex-col items-center"
             onSubmit={handleSubmit}
           >
             <div className="flex items-center w-full border border-slate p-2">
               <input
-                type="text"
-                name="username"
+                type="email"
+                name="email"
                 required={true}
-                placeholder="username"
+                placeholder="email"
                 className="flex-1 border-none outline-none focus:outline-none text-[1.4rem] text-black"
               />
               <tableIcons.person className="text-[1.5rem]" />
@@ -66,19 +70,20 @@ const LoginDisplay = ({ userRole }) => {
               />
               <tableIcons.locked className="text-[1.5rem]" />
             </div>
-            <ReCAPTCHA sitekey={siteKey} ref={ref} cclassName="w-full" />
+            <ReCAPTCHA sitekey={siteKey} ref={ref} className="w-full" />
             <div className="flex justify-between w-full mt-7">
               <label
                 htmlFor="remember me"
                 className="text-[1.4rem] flex items-center justify-start"
               >
                 <input type="checkbox" name="remember" id="" />
-                Remember me
+                <span className="ml-2">Remember me</span>
               </label>
               <button
                 type="submit"
                 className="bg-primary text-[1.4rem] py-3 px-5"
               >
+                {status == statusObj.pending && <ClipLoader size={10} />}
                 Sign in
               </button>
             </div>

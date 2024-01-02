@@ -61,7 +61,7 @@ function ManageAddServiceProvider({ title }) {
       <Container>
         <form onSubmit={handleSubmit}>
           <FormTextInput label="Name" name="name" />
-          <FormTextInput label="Email" name="email" />
+          <FormTextInput label="Email" name="email" type="email" />
           <FormTextInput label="Contact Number" name="contact" />
           <FormTextInput label="Address" name="address" />
           <FormImageInput
@@ -69,6 +69,7 @@ function ManageAddServiceProvider({ title }) {
             name="profilePicture"
             helperText="Supported File Types: jpg, jpeg, png (Max. 2MB)."
           />
+          <FormTextInput label="Country" name="country" />
           <FormActionButtons handleCancel={() => {}} status={status} />
         </form>
       </Container>

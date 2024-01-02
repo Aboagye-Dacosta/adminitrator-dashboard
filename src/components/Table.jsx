@@ -2,7 +2,7 @@ import { Alert } from "@material-tailwind/react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PuffLoader from "react-spinners/PuffLoader";
-import { errorAlertObj,successAlertObj } from "../presentation/routes_icons/alertModel";
+import { errorAlertObj } from "../presentation/routes_icons/alertModel";
 import { statusObj } from "../service/features/customer/customerSlice";
 import {
   dialogContentTye,
@@ -40,15 +40,6 @@ function Table({
       dispatch(
         setAlertData({
           ...errorAlertObj,
-          message: errorMessage,
-        })
-      );
-      dispatch(openAlert());
-    }
-    if (statusState == statusObj.fulfilled) {
-      dispatch(
-        setAlertData({
-          ...successAlertObj,
           message: errorMessage,
         })
       );

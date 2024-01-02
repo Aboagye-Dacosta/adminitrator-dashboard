@@ -37,7 +37,7 @@ const createData = async (data, path, cancelToken) => {
         "Content-Type": "multipart/form-data", // Set content type to multipart form data
       },
     });
-    
+
     console.log(data);
     if (response.data.code == 201) {
       const data = response.data;
@@ -70,8 +70,7 @@ const updateById = async ({ id, ...data }, path, cancelToken) => {
         "Content-Type": "multipart/form-data", // Set content type to multipart form data
       },
     });
-    console.log(response.data);
-    if (response.data.code == 201) {
+    if (response.status == 200) {
       console.log(response.data);
       return {
         error: false,
@@ -92,4 +91,28 @@ const updateById = async ({ id, ...data }, path, cancelToken) => {
   }
 };
 
-export { createData, readAll, updateById };
+const login = async (data) => {
+  try {
+    const response = await axios.post("/login", data, {
+      baseURL: BASE_URL,
+    });
+    console.log(response.data)
+    if (response.status == 200) {
+      return {
+        error: false,
+        data: response.data,
+      };
+    }
+    return {
+      error: true,
+      message: "login failed",
+    };
+  } catch (error) {
+    return {
+      error: true,
+      message: "check your network"
+    }
+  }
+};
+
+export { createData, login, readAll, updateById };

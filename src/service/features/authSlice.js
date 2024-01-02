@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { login } from "../load/loadData";
 import { statusObj } from "./customer/customerSlice";
 
 export const userRolesObj = Object.freeze({
@@ -10,16 +11,14 @@ const name = "auth";
 const initialState = {
   status: statusObj.idle,
   errorMessage: "",
-  isLoggedIn: true,
+  isLoggedIn: false,
   userRole: userRolesObj.superAdmin,
 };
 
 export const validateUser = createAsyncThunk(
   "/auth/validateUser",
-  ({ username, password, userRole }) => {
-    return new Promise((res) => {
-      return res({ username, password, userRole });
-    });
+  ({ email, password, userRole }) => {
+    return login({ email, password });
   }
 );
 
@@ -37,10 +36,20 @@ const authSlice = createSlice({
     builder
       .addCase(validateUser.pending, (state) => {
         state.status = statusObj.pending;
+        console.log("pending")
       })
       .addCase(validateUser.fulfilled, (state, action) => {
         console.log(action.payload);
-        state.status = statusObj.fulfilled;
+        const payload = action.payload;
+        if (payload.error)
+        {
+          state.status = statusObj.error;
+          state.isLoggedIn = false;
+          state.errorMessage = "incorrect email or password"
+        } else {
+          state.status = statusObj.fulfilled;
+          state.isLoggedIn = true;
+        }
       })
       .addCase(validateUser.rejected, (state) => {
         state.errorMessage == "Sorry could not load data";
@@ -63,6 +72,7 @@ const authSlice = createSlice({
 
 export const { setUserRole } = authSlice.actions;
 export const getLoggedInState = (state) => state.auth.isLoggedIn;
+export const getLoggedInStatus = (state) => state.auth.status;
 export const getUserRole = (state) => state.auth.userRole;
 // export const {} = customerSlice.actions;
 export default authSlice.reducer;

@@ -12,7 +12,7 @@ function FormActionButtons({ handleCancel, status }) {
           className="bg-primary text-[1.2rem] text-white mr-3 px-3 min-w-[10rem] flex items-center justify-center"
           type="submit"
         >
-          {status == statusObj.pending && <ClipLoader size={10} />}{" "}
+          {status == statusObj.pending && <ClipLoader size={10} />}
           <span className="ml-3">Save</span>
         </Button>
         <Button
